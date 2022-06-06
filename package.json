@@ -5,17 +5,21 @@
   "packageManager": "pnpm@7.1.7",
   "description": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "esno scripts/build.ts"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/laihaojie/jie.git"
   },
-
   "author": "laihaojie <https://github.com/laihaojie>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/laihaojie/jie/issues"
   },
-  "homepage": "https://github.com/laihaojie/jie#readme"
+  "homepage": "https://github.com/laihaojie/jie#readme",
+  "devDependencies": {
+    "child_process": "^1.0.2",
+    "consola": "^2.15.3",
+    "esno": "^0.16.3"
+  }
 }
