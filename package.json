@@ -1,8 +1,9 @@
 {
-  "name": "jie",
+  "name": "@jie/monorepo",
+  "private": true,
   "version": "1.0.0",
+  "packageManager": "pnpm@7.1.7",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,8 +11,8 @@
     "type": "git",
     "url": "git+https://github.com/laihaojie/jie.git"
   },
-  "keywords": [],
-  "author": "",
+
+  "author": "laihaojie <https://github.com/laihaojie>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/laihaojie/jie/issues"
