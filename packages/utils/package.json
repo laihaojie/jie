@@ -1,5 +1,5 @@
 {
-  "name": "utils",
+  "name": "@jie/utils",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -8,9 +8,16 @@
     "build": "npx tsup src/index.ts --format esm",
     "test": "vitest"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laihaojie/jie.git"
+  },
+  "author": "laihaojie <https://github.com/laihaojie>",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/laihaojie/jie/issues"
+  },
+  "keywords": ["jie", "utils"],
   "devDependencies": {
     "typescript": "^4.7.3",
     "vitest": "^0.14.0"
