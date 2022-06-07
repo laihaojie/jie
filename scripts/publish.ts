@@ -3,15 +3,18 @@ import path from 'path'
 import consola from 'consola'
 import { version } from '../package.json'
 import { packages } from '../meta/packages'
+const desc = process.argv
+console.log(desc);
 
-execSync('npm run build', { stdio: 'inherit' })
 
-let command = 'npm publish --access public'
+// execSync('npm run build', { stdio: 'inherit' })
 
-if (version.includes('beta'))
-  command += ' --tag beta'
+// let command = 'npm publish --access public'
 
-for (const { name } of packages) {
-  execSync(command, { stdio: 'inherit', cwd: path.join('packages', name, 'dist') })
-  consola.success(`Published @djie/${name}`)
-}
+// if (version.includes('beta'))
+//   command += ' --tag beta'
+
+// for (const { name } of packages) {
+//   execSync(command, { stdio: 'inherit', cwd: path.join('packages', name, 'dist') })
+//   consola.success(`Published @djie/${name}`)
+// }
