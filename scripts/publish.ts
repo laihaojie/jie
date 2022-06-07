@@ -7,7 +7,7 @@ import { packages } from '../meta/packages'
 
 const ci = process.argv[2]
 
-!ci && execSync('npm run build', { stdio: 'inherit' })
+execSync('npm run build', { stdio: 'inherit' })
 
 !ci && execSync("nrm use npm", { stdio: 'inherit' })
 
