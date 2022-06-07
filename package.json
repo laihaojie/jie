@@ -4,7 +4,6 @@
   "version": "1.0.1",
   "packageManager": "pnpm@7.1.7",
   "description": "",
-  "type": "module",
   "scripts": {
     "build": "esno scripts/build.ts",
     "release": "esno scripts/release.ts",

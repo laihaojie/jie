@@ -28,29 +28,30 @@ export async function updatePackageJSON() {
     packageJSON.description = description || packageJSON.description
     packageJSON.author = 'laihaojie <https://github.com/laihaojie>'
     packageJSON.bugs = {
-      url: 'https://github.com/vueuse/vueuse/issues',
+      url: 'https://github.com/laihaojie/jie/issues',
     }
-    packageJSON.homepage = name === 'core'
-      ? 'https://github.com/vueuse/vueuse#readme'
-      : `https://github.com/vueuse/vueuse/tree/main/packages/${name}#readme`
+    packageJSON.homepage = 'https://github.com/laihaojie/jie.git#readme'
+
     packageJSON.repository = {
       type: 'git',
-      url: 'git+https://github.com/vueuse/vueuse.git',
+      url: 'git+https://github.com/laihaojie/jie.git',
       directory: `packages/${name}`,
     }
     packageJSON.main = './index.cjs'
     packageJSON.types = './index.d.ts'
-    packageJSON.module = './index.mjs'
+    packageJSON.module = './index.js'
     packageJSON.exports = {
       '.': {
-        import: './index.mjs',
+        import: './index.js',
         require: './index.cjs',
         types: './index.d.ts',
       },
       './*': './*',
       ...packageJSON.exports,
     }
+    delete packageJSON.scripts
+    delete packageJSON.devDependencies
 
-    await fs.writeJSON(packageJSONPath, packageJSON, { spaces: 2 })
+    await fs.writeJSON(join(packageDir, "dist", "package.json"), packageJSON, { spaces: 2 })
   }
 }

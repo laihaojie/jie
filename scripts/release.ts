@@ -4,14 +4,14 @@ import { updatePackageJSON } from './utils'
 
 const { version: oldVersion } = readJSONSync('package.json')
 
-execSync('npx bumpp', { stdio: 'inherit' })
+// execSync('npx bumpp', { stdio: 'inherit' })
 
 const { version } = readJSONSync('package.json')
 
-if (oldVersion === version) {
-  console.log('canceled')
-  process.exit()
-}
+// if (oldVersion === version) {
+//   console.log('canceled')
+//   process.exit()
+// }
 
 updatePackageJSON()
 
