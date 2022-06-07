@@ -26,11 +26,11 @@ jobs:
         run: npm i -g @antfu/ni
 
       - name: Install
-        run: nci
+        run: pnpm i
 
       - name: Build
         run: nr build
 
       - name: Typecheck
-        run: nr typecheck
+        run: nr type:check
 
