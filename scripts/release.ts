@@ -13,8 +13,8 @@ if (oldVersion === version) {
 }
 
 
-execSync('npm run build', { stdio: 'inherit' })
-execSync('npm run publish release', { stdio: 'inherit' })
+// execSync('npm run build', { stdio: 'inherit' })
+// execSync('npm run publish', { stdio: 'inherit' })
 execSync('git add .', { stdio: 'inherit' })
 
 execSync(`git commit -m "chore: release v${version}"`, { stdio: 'inherit' })

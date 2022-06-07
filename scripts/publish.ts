@@ -5,11 +5,11 @@ import { version } from '../package.json'
 import { packages } from '../meta/packages'
 
 
-const release = process.argv[2]
+const ci = process.argv[2]
 
-!release && execSync('npm run build', { stdio: 'inherit' })
+!ci && execSync('npm run build', { stdio: 'inherit' })
 
-execSync("nrm use npm", { stdio: 'inherit' })
+!ci && execSync("nrm use npm", { stdio: 'inherit' })
 
 let command = 'npm publish --access public'
 
@@ -22,4 +22,4 @@ for (const { name } of packages) {
   consola.success(`Published @djie/${name}`)
 }
 
-execSync("nrm use tb", { stdio: 'inherit' })
+!ci && execSync("nrm use tb", { stdio: 'inherit' })

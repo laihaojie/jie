@@ -7,7 +7,8 @@
   "scripts": {
     "build": "esno scripts/build.ts",
     "release": "esno scripts/release.ts",
-    "publish": "esno scripts/publish.ts"
+    "publish": "esno scripts/publish.ts",
+    "publish:ci": "esno scripts/publish.ts ci"
   },
   "repository": {
     "type": "git",
