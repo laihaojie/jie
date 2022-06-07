@@ -55,3 +55,21 @@ export async function updatePackageJSON() {
     await fs.writeJSON(join(packageDir, "dist", "package.json"), packageJSON, { spaces: 2 })
   }
 }
+
+
+export async function updateFileExtension() {
+
+  const { type } = await fs.readJSON('package.json')
+
+  for (const { name } of packages) {
+    const packageDir = join(DIR_SRC, name)
+    const packageDistDir = join(packageDir, 'dist')
+
+    if (type === "module") {
+      fs.renameSync(join(packageDistDir, 'index.js'), join(packageDistDir, 'index.mjs'))
+    }
+    if (type === "commonjs" || type === undefined) {
+      fs.renameSync(join(packageDistDir, 'index.js'), join(packageDistDir, 'index.cjs'))
+    }
+  }
+}
