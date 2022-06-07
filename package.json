@@ -1,7 +1,7 @@
 {
   "name": "@djie/monorepo",
   "private": true,
-  "version": "1.0.4",
+  "version": "1.0.5",
   "packageManager": "pnpm@7.1.7",
   "description": "",
   "scripts": {
