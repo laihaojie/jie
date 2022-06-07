@@ -1,6 +1,5 @@
 import { execSync } from 'child_process'
 import { readJSONSync } from 'fs-extra'
-import { updatePackageJSON } from './utils'
 
 const { version: oldVersion } = readJSONSync('package.json')
 
@@ -16,9 +15,7 @@ if (oldVersion === version) {
 
 execSync('npm run build', { stdio: 'inherit' })
 
-updatePackageJSON()
+execSync('git add .', { stdio: 'inherit' })
 
-// execSync('git add .', { stdio: 'inherit' })
-
-// execSync(`git commit -m "chore: release v${version}"`, { stdio: 'inherit' })
-// execSync(`git tag -a v${version} -m "v${version}"`, { stdio: 'inherit' })
+execSync(`git commit -m "chore: release v${version}"`, { stdio: 'inherit' })
+execSync(`git tag -a v${version} -m "v${version}"`, { stdio: 'inherit' })

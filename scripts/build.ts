@@ -1,6 +1,6 @@
 import { execSync } from 'child_process'
-
 import { packages } from "../meta/packages"
+import { updatePackageJSON } from './utils'
 
 
 for (const { name, description } of packages) {
@@ -8,3 +8,5 @@ for (const { name, description } of packages) {
   execSync(command, { stdio: 'inherit' })
   
 }
+
+updatePackageJSON()
