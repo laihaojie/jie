@@ -3,18 +3,22 @@ import path from 'path'
 import consola from 'consola'
 import { version } from '../package.json'
 import { packages } from '../meta/packages'
-const desc = process.argv
-console.log(desc);
 
 
-// execSync('npm run build', { stdio: 'inherit' })
+const release = process.argv[2]
 
-// let command = 'npm publish --access public'
+!release && execSync('npm run build', { stdio: 'inherit' })
 
-// if (version.includes('beta'))
-//   command += ' --tag beta'
+let command = 'npm publish --access public'
 
-// for (const { name } of packages) {
-//   execSync(command, { stdio: 'inherit', cwd: path.join('packages', name, 'dist') })
-//   consola.success(`Published @djie/${name}`)
-// }
+if (version.includes('beta'))
+  command += ' --tag beta'
+
+execSync("nrm use npm", { stdio: 'inherit' })
+
+for (const { name } of packages) {
+  execSync(command, { stdio: 'inherit', cwd: path.join('packages', name, 'dist') })
+  consola.success(`Published @djie/${name}`)
+}
+
+execSync("nrm use tb", { stdio: 'inherit' })
