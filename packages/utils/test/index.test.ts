@@ -1,8 +1,8 @@
 import { describe, it, expect } from "vitest"
-import { add } from "../src"
+import { isEmpty } from "../src"
 
 describe("utils", () => {
   it("should be true", () => {
-    expect(add()).toMatchInlineSnapshot('2')
+    expect(isEmpty(1)).toMatchInlineSnapshot('false')
   })
 })

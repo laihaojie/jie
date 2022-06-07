@@ -1,4 +1,5 @@
-import { add } from "@djie/utils"
+import { isEmpty } from "@djie/utils"
 
 export const a = 1
-add()
+
+isEmpty(1)
