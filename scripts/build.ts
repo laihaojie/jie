@@ -2,9 +2,14 @@ import { execSync } from 'child_process'
 
 const package_name = 'utils'
 
-const commands = [
-  `npx tsup packages/${package_name}/src/index.ts --dts --format cjs,esm,iife -d packages/${package_name}/dist`,
+const packages = [
+  "utils",
+  "ws",
 ]
 
-for (const command of commands)
+
+
+for (const name of packages) {
+  const command = `npx tsup packages/${name}/index.ts --dts --format cjs,esm,iife -d packages/${name}/dist`
   execSync(command, { stdio: 'inherit' })
+}
