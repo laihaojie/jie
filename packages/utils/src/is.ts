@@ -3,15 +3,15 @@ export const isWeChat = (): boolean => !!window.navigator.userAgent.toLowerCase(
 
 export const isMobileDevice = (): boolean => !!window.navigator.userAgent.toLowerCase().match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone|CrKey)/i)
 
-export const isMobile = (value: any): boolean => !!value.toString().match(/^1[3|4|5|7|8][0-9]{9}/);
+export const isMobile = (val: any): boolean => !!val.toString().match(/^1[3|4|5|7|8][0-9]{9}/);
 
-export const isString = (obj: any): boolean => Object.prototype.toString.call(obj) === '[object String]'
+export const isString = (val: any): boolean => Object.prototype.toString.call(val) === '[object String]'
 
-export const isNumber = (obj: any): boolean => Object.prototype.toString.call(obj) === '[object Number]'
+export const isNumber = (val: any): boolean => Object.prototype.toString.call(val) === '[object Number]'
 
-export const isObject = (obj: any): boolean => Object.prototype.toString.call(obj) === '[object Object]'
+export const isObject = (val: any): boolean => Object.prototype.toString.call(val) === '[object Object]'
 
-export const isArray = (value: any): boolean => value instanceof Array
+export const isArray = (val: any): boolean => val instanceof Array
 
 export const isHtmlElement = (node: any): boolean => node && node.nodeType === Node.ELEMENT_NODE
 
