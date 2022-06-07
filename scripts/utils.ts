@@ -39,10 +39,10 @@ export async function updatePackageJSON() {
     }
     packageJSON.main = './index.cjs'
     packageJSON.types = './index.d.ts'
-    packageJSON.module = './index.js'
+    packageJSON.module = './index.mjs'
     packageJSON.exports = {
       '.': {
-        import: './index.js',
+        import: './index.mjs',
         require: './index.cjs',
         types: './index.d.ts',
       },
