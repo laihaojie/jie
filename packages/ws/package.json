@@ -9,10 +9,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@djie/utils": "workspace:*"
-  },
   "devDependencies": {
+    "@djie/utils": "workspace:*",
     "typescript": "^4.7.3",
     "vitest": "^0.14.0"
   }
