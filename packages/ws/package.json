@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "utils": "workspace:*"
+    "@djie/utils": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^4.7.3",

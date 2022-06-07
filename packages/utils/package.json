@@ -2,19 +2,11 @@
   "name": "@djie/utils",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
   "type": "module",
   "scripts": {
-    "build": "npx tsup src/index.ts --format esm",
     "test": "vitest"
-  },
-  "exports": {
-    ".": {
-      "types": "./index.d.ts",
-      "import": "./index.mjs",
-      "require": "./index.js"
-    },
-    "./*": "./*"
   },
   "repository": {
     "type": "git",

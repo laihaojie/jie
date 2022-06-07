@@ -1,5 +1,5 @@
 import { func } from "./func";
-
+func();
 export const add = () => {
-  return 1 + 1 + func();
+  return 1 + 1;
 }

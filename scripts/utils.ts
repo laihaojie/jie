@@ -38,13 +38,13 @@ export async function updatePackageJSON() {
       url: 'git+https://github.com/vueuse/vueuse.git',
       directory: `packages/${name}`,
     }
-    packageJSON.main = './index.js'
+    packageJSON.main = './index.cjs'
     packageJSON.types = './index.d.ts'
     packageJSON.module = './index.mjs'
     packageJSON.exports = {
       '.': {
         import: './index.mjs',
-        require: './index.js',
+        require: './index.cjs',
         types: './index.d.ts',
       },
       './*': './*',
