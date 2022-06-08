@@ -5,8 +5,8 @@ export default class Wss {
   tt
   // 心跳间隔时间
   timeout = 10000
-  timeoutObj: NodeJS.Timeout | null = null
-  serverTimeoutObj: NodeJS.Timeout | null = null
+  timeoutObj: ReturnType<typeof setTimeout> | null = null
+  serverTimeoutObj: ReturnType<typeof setTimeout> | null = null
   callbackStack = {}
   url
   onopen
