@@ -9,7 +9,7 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "strict": true,
-    "strictNullChecks": true,
+    "noImplicitAny": false,
     "strictFunctionTypes": true,
     "declaration": true,
     "declarationDir": "./types",
@@ -23,6 +23,9 @@
     "paths": {
       "@djie/utils": [
         "./packages/utils/src/index.ts"
+      ],
+      "@djie/ws": [
+        "./packages/ws/src/index.ts"
       ],
     },
   },
