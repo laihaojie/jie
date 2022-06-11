@@ -3,6 +3,8 @@
 
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
+  <j-button></j-button>
+  <j-cell></j-cell>
   
 </template>
 
