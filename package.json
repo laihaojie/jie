@@ -34,8 +34,11 @@
     "rollup-plugin-esbuild": "^4.9.1"
   },
   "pnpm": {
-    "peerDependencyRules": [
-      "esbuild"
-    ]
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "esbuild",
+        "typescript"
+      ]
+    }
   }
 }
