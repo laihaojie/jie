@@ -24,8 +24,12 @@
   "devDependencies": {
     "child_process": "^1.0.2",
     "consola": "^2.15.3",
+    "cross-env": "^7.0.3",
+    "esbuild-register": "^3.3.3",
     "esno": "^0.16.3",
     "fs-extra": "^10.1.0",
-    "rollup": "^2.75.6"
+    "rollup": "^2.75.6",
+    "rollup-plugin-dts": "^4.2.2",
+    "rollup-plugin-esbuild": "^4.9.1"
   }
 }

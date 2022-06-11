@@ -1,4 +1,13 @@
-export const packages = [
+type PackageManifest = {
+  name: string
+  description?: string
+  mjs?: boolean
+  cjs?: boolean
+  dts?: boolean
+  external?: string[]
+}
+
+export const packages: PackageManifest[] = [
   {
     name: 'utils',
     description: 'The utils of djie',
