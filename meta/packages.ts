@@ -17,4 +17,9 @@ export const packages: PackageManifest[] = [
     description: 'The ws of djie',
     cjs: false,
   },
+  {
+    name: 'jie-ui',
+    description: 'The jie-ui of djie',
+    cjs: false,
+  },
 ]
