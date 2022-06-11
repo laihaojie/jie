@@ -1,7 +1,4 @@
-import Button from "./Button";
+import { withInstall } from "../with-install";
+import _Button from "./Button";
 
-export default {
-  install(app) {
-    app.component(Button.name, Button);
-  }
-}
+export const Button = withInstall(_Button);

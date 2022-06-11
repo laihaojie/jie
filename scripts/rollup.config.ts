@@ -2,6 +2,7 @@ import type { OutputOptions, Plugin, RollupOptions } from 'rollup'
 import { packages } from "../meta/packages"
 import dts from 'rollup-plugin-dts'
 import esbuild from 'rollup-plugin-esbuild'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 
 const configs: RollupOptions[] = []
 
@@ -32,6 +33,9 @@ for (const { name, mjs, cjs, dts, external } of packages) {
     input,
     output,
     plugins: [
+      ...name == 'jie-ui' ? [
+        vueJsx()
+      ] : [],
       esbuild(),
     ],
     external: [

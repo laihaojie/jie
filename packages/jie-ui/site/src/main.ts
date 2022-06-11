@@ -1,4 +1,10 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+// import JUi from '../../dist'
 
-createApp(App).mount('#app')
+// console.log(JUi);
+
+
+const app = createApp(App)
+
+app.mount('#app')
