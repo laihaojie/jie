@@ -6,6 +6,7 @@
   "description": "",
   "scripts": {
     "build": "esno scripts/build.ts",
+    "build:rollup": "cross-env NODE_OPTIONS=\"--max-old-space-size=6144\" rollup -c",
     "release": "esno scripts/release.ts",
     "publish:ci": "esno scripts/publish.ts",
     "type:check": "tsc --noEmit"
@@ -24,6 +25,7 @@
     "child_process": "^1.0.2",
     "consola": "^2.15.3",
     "esno": "^0.16.3",
-    "fs-extra": "^10.1.0"
+    "fs-extra": "^10.1.0",
+    "rollup": "^2.75.6"
   }
 }
