@@ -7,10 +7,14 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 const configs: RollupOptions[] = []
 
 const dtsPlugin = [
-  dts(),
+  dts({
+    compilerOptions: {
+      preserveSymlinks: false
+    }
+  }),
 ]
 
-for (const { name, mjs, cjs, dts, external } of packages) {
+for (const { name, mjs, cjs, dts, tsx, external } of packages) {
   const input = `packages/${name}/index.ts`
   const output: OutputOptions[] = []
 
@@ -33,9 +37,7 @@ for (const { name, mjs, cjs, dts, external } of packages) {
     input,
     output,
     plugins: [
-      ...name == 'jie-ui' ? [
-        vueJsx()
-      ] : [],
+      ...tsx ? [vueJsx()] : [],
       esbuild(),
     ],
     external: [

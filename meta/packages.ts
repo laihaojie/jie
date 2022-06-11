@@ -4,6 +4,7 @@ type PackageManifest = {
   mjs?: boolean
   cjs?: boolean
   dts?: boolean
+  tsx?: boolean
   external?: string[]
 }
 
@@ -21,6 +22,6 @@ export const packages: PackageManifest[] = [
     name: 'jie-ui',
     description: 'The jie-ui of djie',
     cjs: false,
-    dts: true,
+    tsx: true,
   },
 ]
