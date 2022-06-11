@@ -1,12 +1,12 @@
 {
   "name": "@djie/monorepo",
   "private": true,
-  "version": "1.0.7",
+  "version": "1.0.8",
   "packageManager": "pnpm@7.1.7",
   "description": "",
   "scripts": {
-    "build": "esno scripts/build.ts",
-    "build:rollup": "cross-env NODE_OPTIONS=\"--max-old-space-size=6144\" rollup -c && pnpm run update",
+    "build:tsup": "esno scripts/tsup.ts",
+    "build": "cross-env NODE_OPTIONS=\"--max-old-space-size=6144\" rollup -c && pnpm run update",
     "release": "esno scripts/release.ts",
     "publish:ci": "esno scripts/publish.ts",
     "update": "esno scripts/update.ts",
