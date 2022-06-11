@@ -11,6 +11,6 @@
   "license": "ISC",
   "devDependencies": {
     "typescript": "^4.7.3",
-    "vue": "^3.2.25"
+    "vue": "^3.2.37"
   }
 }
