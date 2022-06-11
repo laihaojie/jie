@@ -19,7 +19,7 @@ export async function updateImport() {
 export async function updatePackageJSON() {
   const { version } = await fs.readJSON('package.json')
 
-  for (const { name, description } of packages) {
+  for (const { name, description, cjs, mjs } of packages) {
     const packageDir = join(DIR_SRC, name)
     const packageJSONPath = join(packageDir, 'package.json')
     const packageJSON = await fs.readJSON(packageJSONPath)
@@ -36,14 +36,18 @@ export async function updatePackageJSON() {
       type: 'git',
       url: 'git+https://github.com/laihaojie/jie.git',
       directory: `packages/${name}`,
+    };
+    if (cjs !== false) {
+      packageJSON.main = './index.cjs'
     }
-    packageJSON.main = './index.cjs'
+    if (mjs !== false) {
+      packageJSON.module = './index.mjs'
+    }
     packageJSON.types = './index.d.ts'
-    packageJSON.module = './index.mjs'
     packageJSON.exports = {
       '.': {
         import: './index.mjs',
-        require: './index.cjs',
+        ...cjs !== false ? { require: './index.cjs', } : {},
         types: './index.d.ts',
       },
       './*': './*',
