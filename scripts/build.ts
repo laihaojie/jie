@@ -1,13 +1,10 @@
 import { execSync } from 'child_process'
 import { packages } from "../meta/packages"
-import { updateFileExtension, updatePackageJSON } from './utils'
 
 
 for (const { name, description } of packages) {
   const command = `npx tsup packages/${name}/index.ts --dts --format cjs,esm -d packages/${name}/dist`
   execSync(command, { stdio: 'inherit' })
-
 }
 
-updatePackageJSON()
-updateFileExtension()
+execSync('pnpm run update', { stdio: 'inherit' })

@@ -24,7 +24,6 @@ for (const { name, mjs, cjs, dts, external } of packages) {
     output.push({
       file: `packages/${name}/dist/index.cjs`,
       format: 'cjs',
-      exports: 'auto'
     })
   }
 

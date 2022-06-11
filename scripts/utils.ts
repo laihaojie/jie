@@ -66,10 +66,14 @@ export async function updateFileExtension() {
     const packageDistDir = join(packageDir, 'dist')
 
     if (type === "module") {
-      fs.renameSync(join(packageDistDir, 'index.js'), join(packageDistDir, 'index.mjs'))
+      fs.access(join(packageDistDir, 'index.js'), async (e) => {
+        !e && fs.renameSync(join(packageDistDir, 'index.js'), join(packageDistDir, 'index.mjs'))
+      })
     }
     if (type === "commonjs" || type === undefined) {
-      fs.renameSync(join(packageDistDir, 'index.js'), join(packageDistDir, 'index.cjs'))
+      fs.access(join(packageDistDir, 'index.js'), async (e) => {
+        !e && fs.renameSync(join(packageDistDir, 'index.js'), join(packageDistDir, 'index.cjs'))
+      })
     }
   }
 }

@@ -5,7 +5,7 @@ import { version } from '../package.json'
 import { packages } from '../meta/packages'
 
 
-execSync('npm run build', { stdio: 'inherit' })
+execSync('pnpm run build', { stdio: 'inherit' })
 
 
 let command = 'npm publish --access public --registry https://registry.npmjs.org'

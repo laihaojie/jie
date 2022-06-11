@@ -6,9 +6,10 @@
   "description": "",
   "scripts": {
     "build": "esno scripts/build.ts",
-    "build:rollup": "cross-env NODE_OPTIONS=\"--max-old-space-size=6144\" rollup -c",
+    "build:rollup": "cross-env NODE_OPTIONS=\"--max-old-space-size=6144\" rollup -c && pnpm run update",
     "release": "esno scripts/release.ts",
     "publish:ci": "esno scripts/publish.ts",
+    "update": "esno scripts/update.ts",
     "type:check": "tsc --noEmit"
   },
   "repository": {
