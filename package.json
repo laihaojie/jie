@@ -10,6 +10,7 @@
     "release": "esno scripts/release.ts",
     "publish:ci": "esno scripts/publish.ts",
     "update": "esno scripts/update.ts",
+    "fix": "eslint . --fix",
     "type:check": "tsc --noEmit"
   },
   "repository": {
@@ -29,6 +30,7 @@
     "consola": "^2.15.3",
     "cross-env": "^7.0.3",
     "esbuild-register": "^3.3.3",
+    "eslint": "^8.17.0",
     "esno": "^0.16.3",
     "fs-extra": "^10.1.0",
     "rollup": "^2.75.6",
