@@ -1,16 +1,16 @@
 import type { OutputOptions, Plugin, RollupOptions } from 'rollup'
-import { packages } from "../meta/packages"
 import dts from 'rollup-plugin-dts'
 import esbuild from 'rollup-plugin-esbuild'
 import vueJsx from '@vitejs/plugin-vue-jsx'
+import { packages } from '../meta/packages'
 
 const configs: RollupOptions[] = []
 
 const dtsPlugin = [
   dts({
     compilerOptions: {
-      preserveSymlinks: false
-    }
+      preserveSymlinks: false,
+    },
   }),
 ]
 
@@ -31,7 +31,6 @@ for (const { name, mjs, cjs, dts, tsx, external } of packages) {
       format: 'cjs',
     })
   }
-
 
   configs.push({
     input,
@@ -58,8 +57,6 @@ for (const { name, mjs, cjs, dts, tsx, external } of packages) {
       ],
     })
   }
-
-
 }
 
 export default configs

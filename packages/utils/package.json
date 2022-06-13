@@ -1,17 +1,14 @@
 {
   "name": "@djie/utils",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
-  "scripts": {
-    "test": "vitest"
-  },
+  "author": "laihaojie <https://github.com/laihaojie>",
+  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/laihaojie/jie.git"
   },
-  "author": "laihaojie <https://github.com/laihaojie>",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/laihaojie/jie/issues"
   },
@@ -19,6 +16,9 @@
     "jie",
     "utils"
   ],
+  "scripts": {
+    "test": "vitest"
+  },
   "devDependencies": {
     "typescript": "^4.7.3",
     "vitest": "^0.14.0"

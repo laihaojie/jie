@@ -1,17 +1,16 @@
-import { defineComponent } from "vue"
+import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: "JCell",
+  name: 'JCell',
   props: {
     title: {
       type: String,
-      default: "",
-    }
+      default: '',
+    },
   },
   setup(props) {
-
     return () => (
       <div>这是一行文字</div>
     )
-  }
+  },
 })

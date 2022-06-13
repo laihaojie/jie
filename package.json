@@ -1,9 +1,19 @@
 {
   "name": "@djie/monorepo",
-  "private": true,
   "version": "1.0.9",
+  "private": true,
   "packageManager": "pnpm@7.1.9",
   "description": "",
+  "author": "laihaojie <https://github.com/laihaojie>",
+  "license": "ISC",
+  "homepage": "https://github.com/laihaojie/jie#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laihaojie/jie.git"
+  },
+  "bugs": {
+    "url": "https://github.com/laihaojie/jie/issues"
+  },
   "scripts": {
     "build:tsup": "esno scripts/tsup.ts",
     "build": "cross-env NODE_OPTIONS=\"--max-old-space-size=6144\" rollup -c && pnpm run update",
@@ -13,16 +23,6 @@
     "fix": "eslint . --fix",
     "type:check": "tsc --noEmit"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/laihaojie/jie.git"
-  },
-  "author": "laihaojie <https://github.com/laihaojie>",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/laihaojie/jie/issues"
-  },
-  "homepage": "https://github.com/laihaojie/jie#readme",
   "devDependencies": {
     "@antfu/eslint-config": "^0.25.1",
     "@vitejs/plugin-vue-jsx": "^1.3.10",
@@ -31,6 +31,7 @@
     "cross-env": "^7.0.3",
     "esbuild-register": "^3.3.3",
     "eslint": "^8.17.0",
+    "eslint-plugin-vue": "^9.1.1",
     "esno": "^0.16.3",
     "fs-extra": "^10.1.0",
     "rollup": "^2.75.6",

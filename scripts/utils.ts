@@ -1,5 +1,5 @@
-import fs from 'fs-extra'
 import { join, resolve } from 'path'
+import fs from 'fs-extra'
 import { packages } from '../meta/packages'
 
 export const DIR_ROOT = resolve(__dirname, '..')
@@ -14,7 +14,6 @@ export async function updateImport() {
     await fs.writeFile(join(dir, 'index.ts'), `${imports.join('\n')}\n`)
   }
 }
-
 
 export async function updatePackageJSON() {
   const { version } = await fs.readJSON('package.json')
@@ -36,18 +35,18 @@ export async function updatePackageJSON() {
       type: 'git',
       url: 'git+https://github.com/laihaojie/jie.git',
       directory: `packages/${name}`,
-    };
-    if (cjs !== false) {
+    }
+    if (cjs !== false)
       packageJSON.main = './index.cjs'
-    }
-    if (mjs !== false) {
+
+    if (mjs !== false)
       packageJSON.module = './index.mjs'
-    }
+
     packageJSON.types = './index.d.ts'
     packageJSON.exports = {
       '.': {
         import: './index.mjs',
-        ...cjs !== false ? { require: './index.cjs', } : {},
+        ...cjs !== false ? { require: './index.cjs' } : {},
         types: './index.d.ts',
       },
       './*': './*',
@@ -56,25 +55,23 @@ export async function updatePackageJSON() {
     delete packageJSON.scripts
     delete packageJSON.devDependencies
 
-    await fs.writeJSON(join(packageDir, "dist", "package.json"), packageJSON, { spaces: 2 })
+    await fs.writeJSON(join(packageDir, 'dist', 'package.json'), packageJSON, { spaces: 2 })
   }
 }
 
-
 export async function updateFileExtension() {
-
   const { type } = await fs.readJSON('package.json')
 
   for (const { name } of packages) {
     const packageDir = join(DIR_SRC, name)
     const packageDistDir = join(packageDir, 'dist')
 
-    if (type === "module") {
+    if (type === 'module') {
       fs.access(join(packageDistDir, 'index.js'), async (e) => {
         !e && fs.renameSync(join(packageDistDir, 'index.js'), join(packageDistDir, 'index.mjs'))
       })
     }
-    if (type === "commonjs" || type === undefined) {
+    if (type === 'commonjs' || type === undefined) {
       fs.access(join(packageDistDir, 'index.js'), async (e) => {
         !e && fs.renameSync(join(packageDistDir, 'index.js'), join(packageDistDir, 'index.cjs'))
       })

@@ -1,4 +1,4 @@
-import { updateFileExtension, updatePackageJSON } from "./utils"
+import { updateFileExtension, updatePackageJSON } from './utils'
 
 updatePackageJSON()
 updateFileExtension()

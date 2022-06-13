@@ -4,7 +4,7 @@
     "module": "esnext",
     "lib": [
       "ESNext",
-      "DOM",
+      "DOM"
     ],
     "moduleResolution": "node",
     "esModuleInterop": true,
@@ -26,8 +26,8 @@
       ],
       "@djie/ws": [
         "./packages/ws/src/index.ts"
-      ],
-    },
+      ]
+    }
   },
   "include": [
     "packages",

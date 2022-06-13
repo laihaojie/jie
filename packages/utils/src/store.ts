@@ -1,12 +1,13 @@
 /**
- * 
- * @param {String} key 
- * @returns 
+ *
+ * @param {String} key
+ * @returns
  */
 export function localGet(key: string) {
   try {
     return JSON.parse(window.localStorage.getItem(key) as string)
-  } catch (error) {
+  }
+  catch (error) {
     return window.localStorage.getItem(key)
   }
 }

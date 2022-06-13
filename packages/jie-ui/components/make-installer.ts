@@ -9,5 +9,5 @@ export default {
       const component = components[key]
       app.component(component.name, component)
     }
-  }
+  },
 }

@@ -1,4 +1,4 @@
-type PackageManifest = {
+interface PackageManifest {
   name: string
   description?: string
   mjs?: boolean
