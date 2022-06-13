@@ -17,8 +17,7 @@ export function parseTime(time: any, cFormat?: string | '{y}-{m}-{d} {h}:{i}:{s}
       if (/^[0-9]+$/.test(time))
         time = parseInt(time)
       else
-        // eslint-disable-next-line prefer-regex-literals
-        time = time.replace(new RegExp(/-/gm), '/')
+        time = time.replace(/-/gm, '/')
     }
 
     if (typeof time === 'number' && time.toString().length === 10)

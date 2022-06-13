@@ -3,20 +3,20 @@
     "rules": {
         "no-console": "off",
         "react/display-name": "off",
-        // "vue/first-attribute-linebreak": [
-        //     "error",
-        //     {
-        //         "singleline": "ignore",
-        //         "multiline": "ignore"
-        //     }
-        // ],
-        // "vue/html-closing-bracket-newline": [
-        //     "error",
-        //     {
-        //         "singleline": "ignore",
-        //         "multiline": "always"
-        //     }
-        // ],
+        "vue/first-attribute-linebreak": [
+            "error",
+            {
+                "singleline": "ignore",
+                "multiline": "ignore"
+            }
+        ],
+        "vue/html-closing-bracket-newline": [
+            "error",
+            {
+                "singleline": "never",
+                "multiline": "never"
+            }
+        ],
         "react/prop-types": [
             "off"
         ],
