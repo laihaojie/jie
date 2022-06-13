@@ -1,0 +1,22 @@
+{
+    "extends": "@antfu",
+    "rules": {
+        "no-console": "off",
+        "react/display-name": "off",
+        "vue/first-attribute-linebreak": [
+            "error",
+            {
+                "singleline": "ignore",
+                "multiline": "ignore"
+            }
+        ],
+        "vue/html-closing-bracket-newline": [
+            "error",
+            {
+                "singleline": "ignore",
+                "multiline": "always"
+            }
+        ],
+        "no-sequences": "off"
+    }
+}
