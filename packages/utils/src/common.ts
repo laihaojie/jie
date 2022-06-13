@@ -23,7 +23,7 @@ export function rafThrottle(fn: Function) {
 export function getUuid() {
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
     const r = Math.random() * 16 | 0
-    const v = c == 'x' ? r : (r & 0x3 | 0x8)
+    const v = c === 'x' ? r : (r & 0x3 | 0x8)
     return v.toString(16)
   })
 }
@@ -200,6 +200,7 @@ export function debounce(func: Function, wait: number, immediate: boolean) {
   }
 
   return function (this: any, ...args: any[]) {
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     context = this
     timestamp = +new Date()
     const callNow = immediate && !timeout

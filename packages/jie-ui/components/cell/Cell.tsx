@@ -8,7 +8,7 @@ export default defineComponent({
       default: '',
     },
   },
-  setup(props) {
+  setup() {
     return () => (
       <div>这是一行文字</div>
     )

@@ -39,7 +39,7 @@ export default class Wss {
   init() {
     // 连接成功建立的回调方法
     this.websocket!.onopen = (event) => {
-      this.onopen && this.onopen()
+      this.onopen && this.onopen(event)
       // 心跳检测重置
       this.reset().start()
     }
@@ -68,14 +68,14 @@ export default class Wss {
     // 连接发生错误的回调方法
     this.websocket!.onerror = (event) => {
       console.log('WebSocket: Error')
-      this.onerror && this.onerror()
+      this.onerror && this.onerror(event)
       this.reconnect()
     }
 
     // 连接关闭的回调方法
     this.websocket!.onclose = (event) => {
       console.log('WebSocket: Closed')
-      this.onclose && this.onclose()
+      this.onclose && this.onclose(event)
       this.reset() // 心跳检测
       // 判断是否是主动关闭
       !this.isClose && this.reconnect()
@@ -93,7 +93,7 @@ export default class Wss {
    * @param {Function} callback 回调函数
    */
   on(action, callback) {
-    if (this.callbackStack[action] == undefined)
+    if (this.callbackStack[action] === undefined)
       this.callbackStack[action] = new Set()
 
     this.callbackStack[action].add(callback)

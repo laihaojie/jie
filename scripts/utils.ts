@@ -4,16 +4,16 @@ import { packages } from '../meta/packages'
 
 export const DIR_ROOT = resolve(__dirname, '..')
 export const DIR_SRC = resolve(__dirname, '../packages')
-const DIR_TYPES = resolve(__dirname, '../types/packages')
+// const DIR_TYPES = resolve(__dirname, '../types/packages')
 
-export async function updateImport() {
-  for (const { name, description } of packages) {
-    const imports = []
-    const dir = ''
+// export async function updateImport() {
+//   for (const { name, description } of packages) {
+//     const imports = []
+//     const dir = ''
 
-    await fs.writeFile(join(dir, 'index.ts'), `${imports.join('\n')}\n`)
-  }
-}
+//     await fs.writeFile(join(dir, 'index.ts'), `${imports.join('\n')}\n`)
+//   }
+// }
 
 export async function updatePackageJSON() {
   const { version } = await fs.readJSON('package.json')

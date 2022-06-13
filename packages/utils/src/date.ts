@@ -17,6 +17,7 @@ export function parseTime(time: any, cFormat?: string | '{y}-{m}-{d} {h}:{i}:{s}
       if (/^[0-9]+$/.test(time))
         time = parseInt(time)
       else
+        // eslint-disable-next-line prefer-regex-literals
         time = time.replace(new RegExp(/-/gm), '/')
     }
 
@@ -35,7 +36,6 @@ export function parseTime(time: any, cFormat?: string | '{y}-{m}-{d} {h}:{i}:{s}
     a: date.getDay(),
   }
   const time_str = format.replace(/{([ymdhisa])+}/g, (result, key) => {
-    // @ts-expect-error
     const value = formatObj[key]
     if (key === 'a')
       return ['日', '一', '二', '三', '四', '五', '六'][value]
@@ -52,8 +52,6 @@ export function parseTime(time: any, cFormat?: string | '{y}-{m}-{d} {h}:{i}:{s}
 export function formatTime(time: number | string) {
   if ((`${time}`).length === 10)
     time = parseInt(time as string) * 1000
-  else
-    time = time
 
   const d = new Date(time)
   const now = Date.now()

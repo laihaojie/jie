@@ -19,7 +19,7 @@ export const isFunction = (functionToCheck: any): boolean => {
   return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]'
 }
 
-export const isUndefined = (val: any): boolean => val === void 0
+export const isUndefined = (val: any): boolean => val === undefined
 
 export const isDefined = (val: any): boolean => val !== undefined && val !== null
 
@@ -70,9 +70,9 @@ export function isIdNumber(id: string) {
   const date = id.substr(12, 2) // 身份证日
   const time = Date.parse(`${month}-${date}-${year}`) // 身份证日期时间戳date
   const now_time = Date.now() // 当前时间戳
-  // @ts-expect-error
+  // @ts-expect-error  xxx
   const dates = (new Date(year, month, 0)).getDate() // 身份证当月天数
-  // @ts-expect-error
+  // @ts-expect-error  xxx
   if (time > now_time || date > dates)
     return false
   // 校验码判断
@@ -83,5 +83,5 @@ export function isIdNumber(id: string) {
   for (let k = 0; k < 17; k++)
     sum += parseInt(id_array[k]) * c[k]
 
-  return id_array[17].toUpperCase() == b[sum % 11].toUpperCase()
+  return id_array[17].toUpperCase() === b[sum % 11].toUpperCase()
 }

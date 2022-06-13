@@ -17,6 +17,9 @@
         //         "multiline": "always"
         //     }
         // ],
+        "react/prop-types": [
+            "off"
+        ],
         "no-sequences": "off"
     }
 }

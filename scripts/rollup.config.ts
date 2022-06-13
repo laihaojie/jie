@@ -1,4 +1,4 @@
-import type { OutputOptions, Plugin, RollupOptions } from 'rollup'
+import type { OutputOptions, RollupOptions } from 'rollup'
 import dts from 'rollup-plugin-dts'
 import esbuild from 'rollup-plugin-esbuild'
 import vueJsx from '@vitejs/plugin-vue-jsx'
