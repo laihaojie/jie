@@ -1,9 +1,13 @@
 <script setup lang="ts">
+import axios from 'axios'
+const add = async () => {
+  console.log((await axios.get('http://httpbin.org/ip')).data)
+}
 </script>
 
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <j-button />
+  <j-button @click="add" />
   <j-cell />
 </template>
 
