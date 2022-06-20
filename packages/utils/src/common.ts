@@ -48,6 +48,29 @@ export function getQueryObject(url: string) {
 }
 
 /**
+ * 义url字符串拼接的方法
+ * @param options
+ * @returns
+ */
+export function setUrlQuery(url, query: Record<string, any>) {
+  if (!url)
+    return ''
+  if (query) {
+    const queryArr = [] as string[]
+    for (const key in query) {
+      if (Object.hasOwnProperty.call(query, key))
+        queryArr.push(`${key}=${query[key]}`)
+    }
+    if (url.includes('?'))
+      url = `${url}&${queryArr.join('&')}`
+
+    else
+      url = `${url}?${queryArr.join('&')}`
+  }
+  return url
+}
+
+/**
  * @param {string} input value
  * @returns {number} output value
  */
@@ -315,14 +338,10 @@ export default function openWindow(url, title, w, h) {
   const newWindow = window.open(
     url,
     title,
-    `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=yes, copyhistory=no, width=${
-    w
-    }, height=${
-    h
-    }, top=${
-    top
-    }, left=${
-    left}`,
+    `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=yes, copyhistory=no, width=${w
+    }, height=${h
+    }, top=${top
+    }, left=${left}`,
   ) as Window
 
   // Puts focus on the newWindow
