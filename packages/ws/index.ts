@@ -31,6 +31,7 @@ export default class Wss {
       this.init()
     }
     catch (e) {
+      // eslint-disable-next-line no-console
       console.log(`catch${e}`)
       this.reconnect()
     }
@@ -67,6 +68,7 @@ export default class Wss {
 
     // 连接发生错误的回调方法
     this.websocket!.onerror = (event) => {
+      // eslint-disable-next-line no-console
       console.log('WebSocket: Error')
       this.onerror && this.onerror(event)
       this.reconnect()
@@ -74,6 +76,7 @@ export default class Wss {
 
     // 连接关闭的回调方法
     this.websocket!.onclose = (event) => {
+      // eslint-disable-next-line no-console
       console.log('WebSocket: Closed')
       this.onclose && this.onclose(event)
       this.reset() // 心跳检测
@@ -127,6 +130,7 @@ export default class Wss {
     this.isClose = false
     this.tt && clearTimeout(this.tt)
     this.tt = setTimeout(() => {
+      // eslint-disable-next-line no-console
       console.log('reconnect...')
       this.lockReconnect = false
       this.createWebSocket()
@@ -148,6 +152,7 @@ export default class Wss {
       this.websocket!.send('ping')
       // console.log('ping');
       this.serverTimeoutObj = setTimeout(() => { // 如果超过一定时间还没重置，说明后端主动断开了
+        // eslint-disable-next-line no-console
         console.log('Close Server')
         this.websocket!.close() // 如果onclose会执行reconnect，我们执行 websocket.close()就行了.如果直接执行 reconnect 会触发onclose导致重连两次
       }, this.timeout)
