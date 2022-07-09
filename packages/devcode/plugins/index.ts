@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-console */
 // 初始化vite插件
 
@@ -17,7 +18,7 @@ export default function devCode() {
       }
     },
     config(options) {
-      options.esbuild = false
+      // options.esbuild = false
     },
   }
 }
