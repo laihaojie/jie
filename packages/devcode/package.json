@@ -1,0 +1,16 @@
+{
+  "name": "@djie/vite-plugin-devcode",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "scripts": {
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@djie/utils": "workspace:*",
+    "typescript": "^4.7.3"
+  }
+}

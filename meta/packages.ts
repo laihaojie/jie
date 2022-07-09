@@ -24,4 +24,8 @@ export const packages: PackageManifest[] = [
     cjs: false,
     tsx: true,
   },
+  {
+    name: 'devcode',
+    description: 'The devcode of djie',
+  },
 ]
