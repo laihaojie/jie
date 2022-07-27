@@ -7,6 +7,14 @@ export function randomStr(length = 10): string {
   return randomStr
 }
 
+export function randomInt(length = 6): number {
+  let code = ''
+  for (let i = 0; i < length; i++)
+    code += Math.floor(Math.random() * 10)
+
+  return Number(code)
+}
+
 export function rafThrottle(fn: Function) {
   let locked = false
   return function (this: any, ...args: any[]) {

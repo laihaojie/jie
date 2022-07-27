@@ -27,7 +27,7 @@ for (const { name, mjs, cjs, dts, tsx, external } of packages) {
 
   if (cjs !== false) {
     output.push({
-      file: `packages/${name}/dist/index.cjs`,
+      file: `packages/${name}/dist/index.js`,
       format: 'cjs',
     })
   }

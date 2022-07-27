@@ -18,6 +18,7 @@ export const DIR_SRC = resolve(__dirname, '../packages')
 export async function updatePackageJSON() {
   const { version } = await fs.readJSON('package.json')
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   for (const { name, description, cjs, mjs } of packages) {
     const packageDir = join(DIR_SRC, name)
     const packageJSONPath = join(packageDir, 'package.json')
@@ -36,17 +37,17 @@ export async function updatePackageJSON() {
       url: 'git+https://github.com/laihaojie/jie.git',
       directory: `packages/${name}`,
     }
-    if (cjs !== false)
-      packageJSON.main = './index.cjs'
+    // if (cjs !== false)
+    //   packageJSON.main = './index.cjs'
 
-    if (mjs !== false)
-      packageJSON.module = './index.mjs'
+    // if (mjs !== false)
+    //   packageJSON.module = './index.mjs'
 
     packageJSON.types = './index.d.ts'
     packageJSON.exports = {
       '.': {
         import: './index.mjs',
-        ...cjs !== false ? { require: './index.cjs' } : {},
+        ...cjs !== false ? { require: './index.js' } : {},
         types: './index.d.ts',
       },
       './*': './*',
@@ -71,10 +72,10 @@ export async function updateFileExtension() {
         !e && fs.renameSync(join(packageDistDir, 'index.js'), join(packageDistDir, 'index.mjs'))
       })
     }
-    if (type === 'commonjs' || type === undefined) {
-      fs.access(join(packageDistDir, 'index.js'), async (e) => {
-        !e && fs.renameSync(join(packageDistDir, 'index.js'), join(packageDistDir, 'index.cjs'))
-      })
-    }
+    // if (type === 'commonjs' || type === undefined) {
+    //   fs.access(join(packageDistDir, 'index.js'), async (e) => {
+    //     !e && fs.renameSync(join(packageDistDir, 'index.js'), join(packageDistDir, 'index.cjs'))
+    //   })
+    // }
   }
 }
