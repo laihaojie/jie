@@ -24,7 +24,7 @@ export function presetJie(options: PresetJieOptions = {}): Preset {
           mono: 'DM Mono',
         },
       }),
-      options.useRemToPx ? presetRemToPx({ baseFontSize: 4 }) as Preset : [],
+      ...options.useRemToPx ? [presetRemToPx({ baseFontSize: 4 }) as Preset] : [],
     ],
     shortcuts: [
       ['btn', 'px-4 py-1 rounded inline-block bg-teal-700 text-white cursor-pointer !outline-none hover:bg-teal-800 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50'],

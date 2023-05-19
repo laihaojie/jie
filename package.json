@@ -1,8 +1,8 @@
 {
   "name": "@djie/monorepo",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "private": true,
-  "packageManager": "pnpm@7.3.0",
+  "packageManager": "pnpm@8.5.0",
   "author": "laihaojie <https://github.com/laihaojie>",
   "license": "ISC",
   "homepage": "https://github.com/laihaojie/jie#readme",
@@ -38,9 +38,10 @@
     "esno": "^0.16.3",
     "fs-extra": "^10.1.0",
     "rollup": "^2.76.0",
-    "unocss": "^0.51.13",
     "rollup-plugin-dts": "^4.2.2",
-    "rollup-plugin-esbuild": "^4.9.1"
+    "rollup-plugin-esbuild": "^4.9.1",
+    "typescript": "^5.0.4",
+    "unocss": "^0.51.13"
   },
   "pnpm": {
     "peerDependencyRules": {
