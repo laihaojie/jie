@@ -21,7 +21,7 @@
     "update": "esno scripts/update.ts",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "typecheck": "tsc --noEmit"
+    "type:check": "tsc --noEmit"
   },
   "dependencies": {
     "axios": "^0.27.2"
