@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import axios from 'axios'
+
 const add = async () => {
   // eslint-disable-next-line no-console
   console.log((await axios.get('http://httpbin.org/ip')).data)

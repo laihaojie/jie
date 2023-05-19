@@ -1,4 +1,4 @@
-import { join, resolve } from 'path'
+import { join, resolve } from 'node:path'
 import fs from 'fs-extra'
 import { packages } from '../meta/packages'
 
@@ -18,7 +18,7 @@ export const DIR_SRC = resolve(__dirname, '../packages')
 export async function updatePackageJSON() {
   const { version } = await fs.readJSON('package.json')
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // eslint-disable-next-line unused-imports/no-unused-vars
   for (const { name, description, cjs, mjs } of packages) {
     const packageDir = join(DIR_SRC, name)
     const packageJSONPath = join(packageDir, 'package.json')

@@ -36,4 +36,3 @@ jobs:
 
       - name: Typecheck
         run: nr type:check
-

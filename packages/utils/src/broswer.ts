@@ -9,4 +9,4 @@ export function getElementPosition(el: HTMLElement) {
     element = element.offsetParent
   }
   return { top, left }
-} 
+}
