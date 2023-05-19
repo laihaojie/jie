@@ -1,6 +1,6 @@
 {
   "name": "@djie/monorepo",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "private": true,
   "packageManager": "pnpm@7.3.0",
   "author": "laihaojie <https://github.com/laihaojie>",
@@ -38,6 +38,7 @@
     "esno": "^0.16.3",
     "fs-extra": "^10.1.0",
     "rollup": "^2.76.0",
+    "unocss": "^0.51.13",
     "rollup-plugin-dts": "^4.2.2",
     "rollup-plugin-esbuild": "^4.9.1"
   },

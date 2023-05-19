@@ -1,0 +1,19 @@
+{
+  "name": "@djie/unocss",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "scripts": {
+    "test": "vitest"
+  },
+  "dependencies": {
+    "unocss": "^0.51.13",
+    "@unocss/preset-rem-to-px": "^0.51.12"
+  },
+  "devDependencies": {
+    "typescript": "^4.7.3",
+    "vitest": "^0.14.0"
+  }
+}

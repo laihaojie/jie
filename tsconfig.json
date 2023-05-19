@@ -11,8 +11,6 @@
     "strict": true,
     "noImplicitAny": false,
     "strictFunctionTypes": true,
-    "declaration": true,
-    "declarationDir": "./types",
     "resolveJsonModule": true,
     "rootDir": ".",
     "baseUrl": ".",

@@ -28,4 +28,8 @@ export const packages: PackageManifest[] = [
     name: 'devcode',
     description: 'The devcode of djie',
   },
+  {
+    name: 'unocss',
+    description: 'unocss preset',
+  },
 ]
