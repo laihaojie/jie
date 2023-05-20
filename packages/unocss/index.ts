@@ -33,15 +33,16 @@ export function presetJie(options: PresetJieOptions = {}): Preset {
       ['wrap', 'w1280 m-auto my0'],
       ['cc', 'absolute top-0 left-0 right-0 bottom-0 m-auto'],
       ['bc', 'b-b-1  b-#7AAAF5'],
-      [/^dian-?([\.\d]+)?$/, ([, c]) => `relative h${c ?? 21} mr-20 fl before:cc before:w6px before:block before:content-[""] before:h6px before:b-3px before:b-#005CEC before:rounded-3px`],
+      [/^dian-?([\.\d]+)?$/, ([, c]) => `relative h${c ?? '21'} mr-20 fl before:cc before:w6px before:block before:content-[""] before:h6px before:b-3px before:b-#005CEC before:rounded-3px`],
       ['cf', 'before:content-[""] after:content-[""] before:table after:table after:clear-both after:hidden [zoom:1]'],
       ['fl', 'float-left'],
       ['fr', 'float-right'],
       ['cp', 'cursor-pointer'],
       ['th', 'hover:c-#DA2027 cp'],
-      [/^scale-?([\.\d]+)?$/, ([, c = 1.1]) => `hover:transform-scale-${c} transition-0.5`],
-      [/^text-line-?([\.\d]+)?$/, ([, c = 1]) => {
-        if (c === 1)
+      [/^scale-?([\.\d]+)?$/, ([, c = '1.1']) => `hover:transform-scale-${c} transition-0.5`],
+      ['bd', '!c-#005CEC !b-#005CEC  !hover:bg-#005CEC !hover:c-white !focus:bg-#005CEC !focus:c-white'],
+      [/^text-line-?([\.\d]+)?$/, ([, c = '1']) => {
+        if (c === '1')
           return 'overflow-hidden ws-nowrap text-ellipsis'
         else
           return `line-clamp-${c}`
@@ -50,13 +51,13 @@ export function presetJie(options: PresetJieOptions = {}): Preset {
     rules: [
       [/^tc-?([\.\d]+)?$/, ([_, num]) => ({ 'text-align': 'center', 'line-height': num ? `${num}px` : 'normal' })],
       [/^tl-?([\.\d]+)?$/, ([_, num]) => ({ 'text-align': 'left', 'line-height': num ? `${num}px` : 'normal' })],
-      [/transform-scale-?([\.\d]+)?/, ([_, num = 1.1]) => ({
+      [/transform-scale-?([\.\d]+)?/, ([_, num = '1.1']) => ({
         '-webkit-transform': `scale(${num})`,
         '-moz-transform': `scale(${num})`,
         '-ms-transform': `scale(${num})`,
         'transform': `scale(${num})`,
       })],
-      [/transition-?([\.\d]+)?/, ([_, num = 1]) => ({
+      [/transition-?([\.\d]+)?/, ([_, num = '1']) => ({
         '-webkit-transition': `all ${num}s`,
         '-moz-transition': `all ${num}s`,
         'transition': `all ${num}s`,
