@@ -40,6 +40,12 @@ export function presetJie(options: PresetJieOptions = {}): Preset {
       ['cp', 'cursor-pointer'],
       ['th', 'hover:c-#DA2027 cp'],
       [/^scale-?([\.\d]+)?$/, ([, c = 1.1]) => `hover:transform-scale-${c} transition-0.5`],
+      [/^text-line-?([\.\d]+)?$/, ([, c = 1]) => {
+        if (c === 1)
+          return 'overflow-hidden ws-nowrap text-ellipsis'
+        else
+          return `line-clamp-${c}`
+      }],
     ],
     rules: [
       [/^tc-?([\.\d]+)?$/, ([_, num]) => ({ 'text-align': 'center', 'line-height': num ? `${num}px` : 'normal' })],
