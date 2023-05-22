@@ -45,6 +45,7 @@ export function presetJie(options: PresetJieOptions = {}): Preset {
         else
           return `line-clamp-${c}`
       }],
+      ['bg-full', '[background-size:100%_100%] bg-no-repeat'],
     ],
     rules: [
       [/^tc-?([\.\d]+)?$/, ([_, num]) => ({ 'text-align': 'center', 'line-height': num ? `${num}px` : 'normal' })],
