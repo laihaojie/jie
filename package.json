@@ -21,6 +21,7 @@
     "update": "esno scripts/update.ts",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "prepare": "husky install",
     "type:check": "tsc --noEmit"
   },
   "dependencies": {
@@ -37,6 +38,8 @@
     "eslint": "^8.40.0",
     "esno": "^0.16.3",
     "fs-extra": "^10.1.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
     "rollup": "^2.76.0",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-dts": "^4.2.2",
@@ -51,5 +54,10 @@
         "typescript"
       ]
     }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,vue,md,json}": [
+      "eslint --fix"
+    ]
   }
 }
