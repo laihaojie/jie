@@ -6,6 +6,7 @@ interface PackageManifest {
   dts?: boolean
   tsx?: boolean
   external?: string[]
+  copy?: string[]
 }
 
 export const packages: PackageManifest[] = [
@@ -31,5 +32,6 @@ export const packages: PackageManifest[] = [
   {
     name: 'unocss',
     description: 'unocss preset',
+    copy: ['reset.css', 'reset-full.css'],
   },
 ]

@@ -2,6 +2,7 @@ import type { OutputOptions, RollupOptions } from 'rollup'
 import dts from 'rollup-plugin-dts'
 import esbuild from 'rollup-plugin-esbuild'
 import vueJsx from '@vitejs/plugin-vue-jsx'
+import Copy from 'rollup-plugin-copy'
 import { packages } from '../meta/packages'
 
 const configs: RollupOptions[] = []
@@ -14,7 +15,7 @@ const dtsPlugin = [
   }),
 ]
 
-for (const { name, mjs, cjs, dts, tsx, external } of packages) {
+for (const { name, mjs, cjs, dts, tsx, external, copy } of packages) {
   const input = `packages/${name}/index.ts`
   const output: OutputOptions[] = []
 
@@ -38,6 +39,15 @@ for (const { name, mjs, cjs, dts, tsx, external } of packages) {
     plugins: [
       ...tsx ? [vueJsx()] : [],
       esbuild(),
+      Copy({
+        targets: [
+          ...(copy || []).map(i => ({
+            src: `packages/${name}/${i}`,
+            dest: `packages/${name}/dist`,
+          })),
+        ],
+        hook: 'writeBundle',
+      }),
     ],
     external: [
       ...(external || []),
