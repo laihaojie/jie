@@ -41,7 +41,7 @@ export function presetJie(options: PresetJieOptions = {}): Preset {
       [/^scale-?([\.\d]+)?$/, ([, c = '1.1']) => `hover:transform-scale-${c} transition-0.5`],
       [/^text-line-?([\.\d]+)?$/, ([, c = '1']) => {
         if (c === '1')
-          return 'overflow-hidden ws-nowrap text-ellipsis'
+          return 'overflow-hidden ws-nowrap text-ellipsis block'
         else
           return `line-clamp-${c}`
       }],
