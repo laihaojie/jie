@@ -1,3 +1,4 @@
+import Path from 'node:path'
 import type { OutputOptions, RollupOptions } from 'rollup'
 import dts from 'rollup-plugin-dts'
 import esbuild from 'rollup-plugin-esbuild'
@@ -41,10 +42,23 @@ for (const { name, mjs, cjs, dts, tsx, external, copy } of packages) {
       esbuild(),
       Copy({
         targets: [
-          ...(copy || []).map(i => ({
-            src: `packages/${name}/${i}`,
-            dest: `packages/${name}/dist`,
-          })),
+          ...(copy || []).map((i) => {
+            const dir = Path.extname(i) === ''
+            if (dir) {
+              return {
+                src: `packages/${name}/${i}`,
+                dest: `packages/${name}/dist/${i.split('/').filter((c) => {
+                  return /\w+/.test(c)
+                }).join('/')}`,
+              }
+            }
+            else {
+              return ({
+                src: `packages/${name}/${i}`,
+                dest: `packages/${name}/dist`,
+              })
+            }
+          }),
         ],
         hook: 'writeBundle',
       }),

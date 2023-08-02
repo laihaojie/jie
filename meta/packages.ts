@@ -32,6 +32,6 @@ export const packages: PackageManifest[] = [
   {
     name: 'unocss',
     description: 'unocss preset',
-    copy: ['reset.css', 'reset-full.css'],
+    copy: ['reset.css', 'reset-full.css', 'css/**/*'],
   },
 ]
