@@ -30,7 +30,7 @@ export function presetUnit(options: PresetUnitOptions = {}): Preset {
       util.entries.forEach((i) => {
         const value = i[1]
         if (typeof value === 'string' && re.test(value)) {
-          const origin = util.selector.match(/[\.\d]+/)?.[0]
+          const origin = util.selector.match(/[\.\d]+/)?.filter(d => d !== '.')[0]
           if (origin !== null && origin !== undefined)
             i[1] = value.replace(re, () => `${origin}${unit}`)
         }
