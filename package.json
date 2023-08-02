@@ -1,6 +1,6 @@
 {
   "name": "@djie/monorepo",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "private": true,
   "packageManager": "pnpm@8.5.0",
   "author": "laihaojie <https://github.com/laihaojie>",
