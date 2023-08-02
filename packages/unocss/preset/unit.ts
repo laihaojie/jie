@@ -5,7 +5,7 @@ export interface PresetUnitOptions {
    * 1rem = n px
    * @default 4
    */
-  baseFontSize?: number
+  // baseFontSize?: number
 
   /**
    * @default 'px'
@@ -20,7 +20,6 @@ export interface PresetUnitOptions {
 
 export function presetUnit(options: PresetUnitOptions = {}): Preset {
   const {
-    baseFontSize = 4,
     re = /(-?[\.\d]+)rem/g,
     unit = 'px',
   } = options
@@ -30,8 +29,11 @@ export function presetUnit(options: PresetUnitOptions = {}): Preset {
     postprocess: (util) => {
       util.entries.forEach((i) => {
         const value = i[1]
-        if (typeof value === 'string' && re.test(value))
-          i[1] = value.replace(re, (_, p1) => `${p1 * baseFontSize}${unit}`)
+        if (typeof value === 'string' && re.test(value)) {
+          const origin = util.selector.match(/[\.\d]+/)?.[0]
+          if (origin !== null && origin !== undefined)
+            i[1] = value.replace(re, () => `${origin}${unit}`)
+        }
       })
     },
   }

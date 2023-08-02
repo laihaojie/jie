@@ -11,13 +11,12 @@ export interface PresetUniappOptions extends PresetUnitOptions {
 export function presetUniapp(options: PresetUniappOptions = {}): Preset {
   const {
     unit = 'rpx',
-    baseFontSize = 1 / 8,
     re = /(-?[\.\d]+)rpx/g,
   } = options
   return {
     name: '@djie/unocss-preset-uniapp',
     presets: [
-      ...options.unit ? [presetUnit({ unit, baseFontSize, re }) as Preset] : [],
+      ...options.unit ? [presetUnit({ unit, re }) as Preset] : [],
     ],
     shortcuts: [
       ...commonShortcuts,
