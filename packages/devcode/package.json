@@ -5,12 +5,7 @@
   "author": "",
   "license": "ISC",
   "keywords": [],
-  "scripts": {
-    "dev": "vite"
-  },
   "devDependencies": {
-    "@djie/utils": "workspace:*",
-    "typescript": "^4.7.3",
-    "vite": "^2.9.9"
+    "vite": "^4.4.9"
   }
 }

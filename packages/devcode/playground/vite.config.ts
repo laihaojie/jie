@@ -1,11 +1,10 @@
 import { defineConfig } from 'vite'
-import myPlugin from './plugins'
-import codePlugin from './plugins/code'
+import { DevCodePlugin } from '../'
 
 export default defineConfig({
   plugins: [
-    codePlugin(),
-    myPlugin(),
+    DevCodePlugin(),
+    // myPlugin(),
 
   ],
   // clearScreen: false,
