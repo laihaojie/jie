@@ -9,7 +9,7 @@
     "test": "vitest"
   },
   "devDependencies": {
-    "typescript": "^4.7.3",
-    "vue": "^3.2.37"
+    "typescript": "^5.2.2",
+    "vue": "^3.3.4"
   }
 }

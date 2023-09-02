@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "@djie/utils": "workspace:*",
-    "typescript": "^4.7.3",
-    "vitest": "^0.14.0"
+    "typescript": "^5.2.2",
+    "vitest": "^0.34.3"
   }
 }
