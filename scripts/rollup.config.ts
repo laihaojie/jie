@@ -41,6 +41,7 @@ for (const { name, mjs, cjs, dts, tsx, external, copy } of packages) {
       ...tsx ? [vueJsx()] : [],
       esbuild(),
       Copy({
+        verbose: true,
         targets: [
           ...(copy || []).map((i) => {
             const dir = Path.extname(i) === ''
@@ -60,7 +61,6 @@ for (const { name, mjs, cjs, dts, tsx, external, copy } of packages) {
             }
           }),
         ],
-        hook: 'writeBundle',
       }),
     ],
     external: [

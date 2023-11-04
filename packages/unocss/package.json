@@ -9,11 +9,11 @@
     "test": "vitest"
   },
   "dependencies": {
-    "unocss": "^0.55.4",
-    "unocss-preset-weapp": "^0.55.2"
+    "unocss": "^0.57.2",
+    "unocss-preset-weapp": "^0.57.0"
   },
   "devDependencies": {
-    "@unocss/core": "^0.55.4",
+    "@unocss/core": "^0.57.2",
     "typescript": "^5.2.2",
     "vitest": "^0.34.3"
   }

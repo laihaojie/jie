@@ -1,6 +1,6 @@
 {
   "name": "@djie/monorepo",
-  "version": "1.0.27",
+  "version": "1.0.28",
   "private": true,
   "packageManager": "pnpm@8.5.0",
   "author": "laihaojie <https://github.com/laihaojie>",
@@ -31,7 +31,6 @@
     "@djie/eslint-config": "^1.0.24",
     "@types/node": "^20.5.8",
     "@vitejs/plugin-vue-jsx": "^3.0.2",
-    "child_process": "^1.0.2",
     "consola": "^3.2.3",
     "cross-env": "^7.0.3",
     "esbuild-register": "^3.4.2",
@@ -45,7 +44,7 @@
     "rollup-plugin-dts": "^6.0.1",
     "rollup-plugin-esbuild": "^5.0.0",
     "typescript": "^5.2.2",
-    "unocss": "^0.55.4"
+    "unocss": "^0.57.2"
   },
   "pnpm": {
     "peerDependencyRules": {
