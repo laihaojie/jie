@@ -8,13 +8,11 @@
   "scripts": {
     "test": "vitest"
   },
-  "dependencies": {
-    "unocss": "^0.57.2",
-    "unocss-preset-weapp": "^0.57.0"
-  },
   "devDependencies": {
-    "@unocss/core": "^0.57.2",
-    "typescript": "^5.2.2",
-    "vitest": "^0.34.3"
+    "@unocss/core": "^0.57.7",
+    "typescript": "^5.3.2",
+    "unocss": "^0.57.7",
+    "unocss-preset-weapp": "^0.57.1",
+    "vitest": "^0.34.6"
   }
 }
