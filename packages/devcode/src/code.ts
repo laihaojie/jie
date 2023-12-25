@@ -1,3 +1,4 @@
+/* eslint-disable unused-imports/no-unused-vars */
 // 初始化vite插件
 import type { Plugin, ResolvedConfig } from 'vite'
 import { SKIP_COMMENT_RE } from '../constants'

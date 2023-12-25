@@ -1,6 +1,6 @@
 {
   "name": "@djie/monorepo",
-  "version": "1.0.29",
+  "version": "1.0.30",
   "private": true,
   "packageManager": "pnpm@8.5.0",
   "author": "laihaojie <https://github.com/laihaojie>",
@@ -28,13 +28,13 @@
     "axios": "^1.5.0"
   },
   "devDependencies": {
-    "@djie/eslint-config": "^1.0.24",
+    "@djie/eslint-config": "^2.1.4",
     "@types/node": "^20.5.8",
     "@vitejs/plugin-vue-jsx": "^3.0.2",
     "consola": "^3.2.3",
     "cross-env": "^7.0.3",
     "esbuild-register": "^3.4.2",
-    "eslint": "^8.48.0",
+    "eslint": "^8.56.0",
     "esno": "^0.17.0",
     "fs-extra": "^11.1.1",
     "husky": "^8.0.3",

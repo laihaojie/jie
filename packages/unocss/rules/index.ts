@@ -1,4 +1,4 @@
-import type { Rule } from '@unocss/core'
+import type { Rule } from 'unocss'
 
 export const commonRules: Rule[] = [
   [/^tc-?([\.\d]+)?$/, ([_, num]) => ({ 'text-align': 'center', 'line-height': num ? `${num}px` : 'normal' })],

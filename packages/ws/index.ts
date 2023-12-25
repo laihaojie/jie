@@ -102,10 +102,6 @@ export default class Wss {
     this.callbackStack[action].add(callback)
   }
 
-  /**
-   *
-   * @param {string} action
-   */
   trigger(result) {
     const effects = this.callbackStack[result.action]
     if (effects && effects.size) {

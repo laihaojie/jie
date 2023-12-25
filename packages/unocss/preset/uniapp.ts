@@ -1,4 +1,4 @@
-import type { Preset } from '@unocss/core'
+import type { Preset } from 'unocss'
 import { commonShortcuts } from '../shortcuts'
 import { commonRules } from '../rules'
 import type { PresetUnitOptions } from './unit'
@@ -16,7 +16,7 @@ export function presetUniapp(options: PresetUniappOptions = {}): Preset {
   return {
     name: '@djie/unocss-preset-uniapp',
     presets: [
-      ...options.unit ? [presetUnit({ unit, re }) as Preset] : [],
+      ...options.unit ? [presetUnit({ unit, re })] : [],
     ],
     shortcuts: [
       ...commonShortcuts,

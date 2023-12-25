@@ -1,23 +1,15 @@
 {
   "compilerOptions": {
     "target": "es2017",
-    "module": "esnext",
+    "jsx": "preserve",
     "lib": [
       "ESNext",
       "DOM"
     ],
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "strict": true,
-    "noImplicitAny": false,
-    "strictFunctionTypes": true,
-    "resolveJsonModule": true,
-    "rootDir": ".",
     "baseUrl": ".",
-    "jsx": "preserve",
-    "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
-    "noUnusedLocals": true,
+    "rootDir": ".",
+    "module": "esnext",
+    "moduleResolution": "node",
     "paths": {
       "@djie/utils": [
         "./packages/utils/src/index.ts"
@@ -25,7 +17,15 @@
       "@djie/ws": [
         "./packages/ws/src/index.ts"
       ]
-    }
+    },
+    "resolveJsonModule": true,
+    "strict": true,
+    "strictFunctionTypes": true,
+    "noImplicitAny": false,
+    "noUnusedLocals": true,
+    "esModuleInterop": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true
   },
   "include": [
     "packages",

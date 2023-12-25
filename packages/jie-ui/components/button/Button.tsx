@@ -10,7 +10,10 @@ export default defineComponent({
   },
   setup(props) {
     return () => (
-      <button class="bg-red">这个一个按钮{props.title}</button>
+      <button class="bg-red">
+        这个一个按钮
+        {props.title}
+      </button>
     )
   },
 })

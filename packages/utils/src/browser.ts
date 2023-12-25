@@ -13,19 +13,19 @@ export function getElementPosition(el: HTMLElement) {
 
 /**
  * @param {string} val
- * @returns {string}
+ * @returns {string} xxx
  */
 export function html2Text(val: string) {
   const div = document.createElement('div')
   div.innerHTML = val
-  return div.textContent || div.innerText
+  return div.textContent
 }
 
 /**
  * @param {Sting} url
  * @param {Sting} title
- * @param {Number} w
- * @param {Number} h
+ * @param {number} w
+ * @param {number} h
  */
 export default function openWindow(url, title, w, h) {
   // Fixes dual-screen position                            Most browsers       Firefox
@@ -63,9 +63,9 @@ export default function openWindow(url, title, w, h) {
 
 /**
  * Check if an element has a class
- * @param {HTMLElement} elm
+ * @param {HTMLElement} ele
  * @param {string} cls
- * @returns {boolean}
+ * @returns {boolean} xxx
  */
 export function hasClass(ele: HTMLElement, cls: string) {
   return !!ele.className.match(new RegExp(`(\\s|^)${cls}(\\s|$)`))
@@ -73,7 +73,7 @@ export function hasClass(ele: HTMLElement, cls: string) {
 
 /**
  * Add class to element
- * @param {HTMLElement} elm
+ * @param {HTMLElement} ele
  * @param {string} cls
  */
 export function addClass(ele: HTMLElement, cls: string) {
@@ -83,7 +83,7 @@ export function addClass(ele: HTMLElement, cls: string) {
 
 /**
  * Remove class from element
- * @param {HTMLElement} elm
+ * @param {HTMLElement} ele
  * @param {string} cls
  */
 export function removeClass(ele: HTMLElement, cls: string) {
@@ -116,7 +116,7 @@ export function toggleClass(element: HTMLElement, className: string) {
 
 /**
  * @param {string} url
- * @returns {Object}
+ * @returns {object} xxx
  */
 export function getQueryObject(url: string) {
   url = url == null ? window.location.href : url

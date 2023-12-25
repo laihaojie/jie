@@ -14,7 +14,7 @@ export const isArray = (val: any): boolean => Array.isArray(val)
 
 export const isHtmlElement = (node: any): boolean => node && node.nodeType === Node.ELEMENT_NODE
 
-export const isFunction = (functionToCheck: any): boolean => {
+export function isFunction(functionToCheck: any): boolean {
   const getType = {}
   return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]'
 }
@@ -81,7 +81,7 @@ export function isIdNumber(id: string) {
   const id_array = id.split('')
   let sum = 0
   for (let k = 0; k < 17; k++)
-    sum += parseInt(id_array[k]) * c[k]
+    sum += Number.parseInt(id_array[k]) * c[k]
 
   return id_array[17].toUpperCase() === b[sum % 11].toUpperCase()
 }

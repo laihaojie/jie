@@ -1,4 +1,4 @@
-import type { DynamicShortcut, StaticShortcut, StaticShortcutMap } from '@unocss/core'
+import type { DynamicShortcut, StaticShortcut, StaticShortcutMap } from 'unocss'
 
 export const commonShortcuts: (StaticShortcut | DynamicShortcut | StaticShortcutMap)[] = [
   ['btn', 'px-4 py-1 rounded inline-block bg-teal-700 text-white cursor-pointer !outline-none hover:bg-teal-800 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50'],

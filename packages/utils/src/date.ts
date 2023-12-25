@@ -1,8 +1,8 @@
 /**
  * Parse the time to string
- * @param {(Object|string|number)} time
+ * @param {(object | string | number)} time
  * @param {string} cFormat
- * @returns {string | null}
+ * @returns {string | null} date
  */
 export function parseTime(time: any, cFormat?: string | '{y}-{m}-{d} {h}:{i}:{s}'): string | null {
   if (arguments.length === 0 || !time)
@@ -15,7 +15,7 @@ export function parseTime(time: any, cFormat?: string | '{y}-{m}-{d} {h}:{i}:{s}
   else {
     if (typeof time === 'string') {
       if (/^[0-9]+$/.test(time))
-        time = parseInt(time)
+        time = Number.parseInt(time)
       else
         time = time.replace(/-/gm, '/')
     }
@@ -45,12 +45,11 @@ export function parseTime(time: any, cFormat?: string | '{y}-{m}-{d} {h}:{i}:{s}
 
 /**
  * @param {number} time
- * @param {string} option
- * @returns {string}
+ * @returns {string} date
  */
 export function formatTime(time: number | string) {
   if ((`${time}`).length === 10)
-    time = parseInt(time as string) * 1000
+    time = Number.parseInt(time as string) * 1000
 
   const d = new Date(time)
   const now = Date.now()

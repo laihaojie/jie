@@ -1,5 +1,5 @@
 export function randomStr(length = 10): string {
-  const seeder = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678' /** **默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
+  const seeder = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678' /** **默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1 */
   let randomStr = ''
   for (let i = 0; i < length; i++)
     randomStr += seeder.charAt(Math.floor(Math.random() * seeder.length))
@@ -23,11 +23,6 @@ export function getUuid() {
   })
 }
 
-/**
- * 义url字符串拼接的方法
- * @param options
- * @returns
- */
 export function setUrlQuery(url, query: Record<string, any>) {
   if (!url)
     return ''
@@ -47,7 +42,7 @@ export function setUrlQuery(url, query: Record<string, any>) {
 }
 
 /**
- * @param {string} input value
+ * @param {string} str value
  * @returns {number} output value
  */
 export function byteLength(str: string) {
@@ -67,7 +62,7 @@ export function byteLength(str: string) {
 
 /**
  * @param {Array} actual
- * @returns {Array}
+ * @returns {Array} xxx
  */
 export function cleanArray(actual: Array<any>) {
   const newArray = [] as Array<any>
@@ -79,8 +74,8 @@ export function cleanArray(actual: Array<any>) {
 }
 
 /**
- * @param {Object} json
- * @returns {Array}
+ * @param {object} json
+ * @returns {Array} xxx
  */
 export function param(json: any) {
   if (!json)
@@ -96,7 +91,7 @@ export function param(json: any) {
 
 /**
  * @param {string} url
- * @returns {Object}
+ * @returns {object} xxx
  */
 export function param2Obj(url: string) {
   const search = decodeURIComponent(url.split('?')[1]).replace(/\+/g, ' ')
@@ -118,9 +113,9 @@ export function param2Obj(url: string) {
 
 /**
  * Merges two objects, giving the last one precedence
- * @param {Object} target
- * @param {(Object|Array)} source
- * @returns {Object}
+ * @param {object} target
+ * @param {(object | Array)} source
+ * @returns {object} xxx
  */
 export function objectMerge(target: any, source: any) {
   if (typeof target !== 'object')
@@ -168,7 +163,7 @@ export function debounce(func: Function, wait: number, immediate: boolean) {
   }
 
   return function (this: any, ...args: any[]) {
-    // eslint-disable-next-line @typescript-eslint/no-this-alias
+    // eslint-disable-next-line ts/no-this-alias
     context = this
     timestamp = +new Date()
     const callNow = immediate && !timeout
@@ -188,8 +183,8 @@ export function debounce(func: Function, wait: number, immediate: boolean) {
  * This is just a simple version of deep copy
  * Has a lot of edge cases bug
  * If you want to use a perfect deep copy, use lodash's _.cloneDeep
- * @param {Object} source
- * @returns {Object}
+ * @param {object} source
+ * @returns {object} xxx
  */
 export function deepClone(source: any) {
   if (!source && typeof source !== 'object')
@@ -207,14 +202,14 @@ export function deepClone(source: any) {
 
 /**
  * @param {Array} arr
- * @returns {Array}
+ * @returns {Array} xxx
  */
 export function uniqueArr(arr: any) {
   return Array.from(new Set(arr))
 }
 
 /**
- * @returns {string}
+ * @returns {string} xxx
  */
 export function createUniqueString() {
   const timestamp = `${+new Date()}`
@@ -223,8 +218,8 @@ export function createUniqueString() {
 }
 
 /**
- * @param {string} url
- * @returns {string}
+ * @param {string} paths
+ * @returns {string} xxx
  */
 export function resolvePath(...paths) {
   // 实现类似于 path.resolve 的功能

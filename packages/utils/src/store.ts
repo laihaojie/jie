@@ -1,7 +1,7 @@
 /**
  *
- * @param {String} key
- * @returns
+ * @param {string} key
+ * @returns res
  */
 export function localGet(key: string) {
   try {

@@ -1,11 +1,11 @@
-import type { Preset } from '@unocss/core'
+import type { Preset } from 'unocss'
 
 export interface PresetUnitOptions {
   /**
    * 1rem = n px
    * @default 4
    */
-  // baseFontSize?: number
+  baseFontSize?: number
 
   /**
    * @default 'px'
@@ -22,6 +22,7 @@ export function presetUnit(options: PresetUnitOptions = {}): Preset {
   const {
     re = /(-?[\.\d]+)rem/g,
     unit = 'px',
+    baseFontSize = 4,
   } = options
 
   return {
@@ -33,6 +34,8 @@ export function presetUnit(options: PresetUnitOptions = {}): Preset {
           const origin = util.selector.match(/[\.\d]+/g)?.filter(d => d !== '.')[0]
           if (origin !== null && origin !== undefined)
             i[1] = value.replace(re, () => `${origin}${unit}`)
+          else
+            i[1] = value.replace(re, (_, p1) => `${p1 * baseFontSize}${unit}`)
         }
       })
     },

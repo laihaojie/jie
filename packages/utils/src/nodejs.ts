@@ -2,7 +2,7 @@ import os from 'node:os'
 
 /**
  * Get ip(v4) address
- * @return {String} the ipv4 address or 'localhost'
+ * @return {string} the ipv4 address or 'localhost'
  */
 export function getIPAddress(): string {
   const interfaces = os.networkInterfaces()

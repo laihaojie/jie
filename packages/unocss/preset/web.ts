@@ -1,4 +1,4 @@
-import type { Preset } from '@unocss/core'
+import type { Preset } from 'unocss'
 import { presetAttributify, presetIcons, presetTypography, presetUno, presetWebFonts } from 'unocss'
 import { commonShortcuts } from '../shortcuts'
 import { commonRules } from '../rules'
@@ -13,21 +13,21 @@ export function presetWeb(options: PresetWebOptions = {}): Preset {
   return {
     name: '@djie/unocss-preset-web',
     presets: [
-      presetUno() as Preset,
-      presetAttributify() as Preset,
+      presetUno(),
+      presetAttributify(),
       presetIcons({
         scale: 1.2,
         warn: true,
-      }) as Preset,
-      presetTypography() as Preset,
+      }),
+      presetTypography(),
       presetWebFonts({
         fonts: {
           sans: 'DM Sans',
           serif: 'DM Serif Display',
           mono: 'DM Mono',
         },
-      }) as Preset,
-      ...options.unit ? [presetUnit(options) as Preset] : [],
+      }),
+      ...options.unit ? [presetUnit(options)] : [],
     ],
     shortcuts: [
       ...commonShortcuts,
