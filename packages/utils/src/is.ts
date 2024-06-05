@@ -2,7 +2,7 @@ export const isWeChat = (): boolean => !!window.navigator.userAgent.toLowerCase(
 
 export const isMobileDevice = (): boolean => !!window.navigator.userAgent.toLowerCase().match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone|CrKey)/i)
 
-export const isMobile = (val: any): boolean => !!val.toString().match(/^1[3|4|5|7|8][0-9]{9}/)
+export const isMobile = (val: any): boolean => !!val.toString().match(/^1[3|4578]\d{9}/)
 
 export const isString = (val: any): boolean => Object.prototype.toString.call(val) === '[object String]'
 
@@ -59,7 +59,8 @@ export const isEmpty = function (val: any): boolean {
 
 export function isIdNumber(id: string) {
   // 1 "验证通过!", 0 //校验不通过
-  const format = /^(([1][1-5])|([2][1-3])|([3][1-7])|([4][1-6])|([5][0-4])|([6][1-5])|([7][1])|([8][1-2]))\d{4}(([1][9]\d{2})|([2]\d{3}))(([0][1-9])|([1][0-2]))(([0][1-9])|([1-2][0-9])|([3][0-1]))\d{3}[0-9xX]$/
+  // eslint-disable-next-line regexp/no-unused-capturing-group
+  const format = /^((1[1-5])|(2[1-3])|(3[1-7])|(4[1-6])|(5[0-4])|(6[1-5])|(71)|(8[12]))\d{4}((19\d{2})|(2\d{3}))((0[1-9])|(1[0-2]))((0[1-9])|([12]\d)|(3[01]))\d{3}[0-9x]$/i
   // 号码规则校验
   if (!format.test(id))
     return false

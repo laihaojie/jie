@@ -5,15 +5,15 @@ export const commonShortcuts: (StaticShortcut | DynamicShortcut | StaticShortcut
   ['icon-btn', 'inline-block cursor-pointer select-none opacity-75 transition duration-200 ease-in-out hover:opacity-100 hover:text-teal-600'],
   ['fc', 'flex justify-center items-center'],
   ['wrap', 'w1280 m-auto my0'],
-  [/^dian-?([\.\d]+)?$/, ([, c]) => `relative h${c ?? '21'} mr-20 fl before:cc before:w6px before:block before:content-[""] before:h6px before:b-3px before:b-#005CEC before:rounded-3px`],
+  [/^dian-?([.\d]+)?$/, ([, c]) => `relative h${c ?? '21'} mr-20 fl before:cc before:w6px before:block before:content-[""] before:h6px before:b-3px before:b-#005CEC before:rounded-3px`],
   ['cf', 'before:content-[""] after:content-[""] before:table after:table after:clear-both after:hidden [zoom:1]'],
   ['star', 'before:content-["*"] before:c-red500'],
   ['fl', 'float-left'],
   ['fr', 'float-right'],
   ['cp', 'cursor-pointer'],
   ['th', 'hover:c-#DA2027 cp'],
-  [/^scale-?([\.\d]+)?$/, ([, c = '1.1']) => `hover:transform-scale-${c} transition-0.5`],
-  [/^text-line-?([\.\d]+)?$/, ([, c = '1']) => {
+  [/^scale-?([.\d]+)?$/, ([, c = '1.1']) => `hover:transform-scale-${c} transition-0.5`],
+  [/^text-line-?([.\d]+)?$/, ([, c = '1']) => {
     if (c === '1')
       return 'overflow-hidden ws-nowrap text-ellipsis block'
     else

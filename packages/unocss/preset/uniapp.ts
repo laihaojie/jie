@@ -11,7 +11,7 @@ export interface PresetUniappOptions extends PresetUnitOptions {
 export function presetUniapp(options: PresetUniappOptions = {}): Preset {
   const {
     unit = 'rpx',
-    re = /(-?[\.\d]+)rpx/g,
+    re = /(-?[.\d]+)rpx/g,
   } = options
   return {
     name: '@djie/unocss-preset-uniapp',

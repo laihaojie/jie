@@ -10,7 +10,7 @@ interface EventShim {
 }
 
 export type WithInstall<T> = T & {
-  install(app: App): void
+  install: (app: App) => void
 } & EventShim
 
 export function withInstall<T>(options: T) {

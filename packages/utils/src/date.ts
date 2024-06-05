@@ -14,10 +14,10 @@ export function parseTime(time: any, cFormat?: string | '{y}-{m}-{d} {h}:{i}:{s}
   }
   else {
     if (typeof time === 'string') {
-      if (/^[0-9]+$/.test(time))
+      if (/^\d+$/.test(time))
         time = Number.parseInt(time)
       else
-        time = time.replace(/-/gm, '/')
+        time = time.replace(/-/g, '/')
     }
 
     if (typeof time === 'number' && time.toString().length === 10)
@@ -34,7 +34,7 @@ export function parseTime(time: any, cFormat?: string | '{y}-{m}-{d} {h}:{i}:{s}
     s: date.getSeconds(),
     a: date.getDay(),
   }
-  const time_str = format.replace(/{([ymdhisa])+}/g, (result, key) => {
+  const time_str = format.replace(/\{([ymdhisa])+\}/g, (result, key) => {
     const value = formatObj[key]
     if (key === 'a')
       return ['日', '一', '二', '三', '四', '五', '六'][value]
