@@ -2,6 +2,7 @@ import type { Preset } from 'unocss'
 import { presetAttributify, presetIcons, presetTypography, presetUno, presetWebFonts } from 'unocss'
 import { commonShortcuts } from '../shortcuts'
 import { commonRules } from '../rules'
+import { commonTransformers } from '../transformers'
 import type { PresetUnitOptions } from './unit'
 import { presetUnit } from './unit'
 
@@ -36,5 +37,8 @@ export function presetWeb(options: PresetWebOptions = {}): Preset {
       ...commonRules,
     ],
     safelist: 'prose m-auto text-left'.split(' '),
+    transformers: [
+      ...commonTransformers,
+    ],
   }
 }

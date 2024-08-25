@@ -2,6 +2,7 @@
   "name": "@djie/monorepo",
   "version": "1.0.32",
   "private": true,
+  "packageManager": "pnpm@9.8.0",
   "author": "laihaojie <https://github.com/laihaojie>",
   "license": "ISC",
   "homepage": "https://github.com/laihaojie/jie#readme",
@@ -24,26 +25,26 @@
     "type:check": "tsc --noEmit"
   },
   "dependencies": {
-    "axios": "^1.5.0"
+    "axios": "^1.7.5"
   },
   "devDependencies": {
     "@djie/eslint-config": "^2.1.7",
     "@types/node": "^20.5.8",
-    "@vitejs/plugin-vue-jsx": "^3.0.2",
+    "@vitejs/plugin-vue-jsx": "^4.0.1",
     "consola": "^3.2.3",
     "cross-env": "^7.0.3",
     "esbuild-register": "^3.4.2",
-    "eslint": "^9.4.0",
-    "esno": "^0.17.0",
-    "fs-extra": "^11.1.1",
+    "eslint": "^9.9.1",
+    "esno": "^4.7.0",
+    "fs-extra": "^11.2.0",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
-    "rollup": "^3.28.1",
-    "rollup-plugin-copy": "^3.4.0",
-    "rollup-plugin-dts": "^6.0.1",
-    "rollup-plugin-esbuild": "^5.0.0",
-    "typescript": "^5.2.2",
-    "unocss": "^0.57.2"
+    "rollup": "^4.21.0",
+    "rollup-plugin-copy": "^3.5.0",
+    "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-esbuild": "^6.1.1",
+    "typescript": "^5.5.4",
+    "unocss": "^0.62.3"
   },
   "pnpm": {
     "peerDependencyRules": {
