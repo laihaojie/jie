@@ -1,6 +1,6 @@
 {
   "name": "@djie/monorepo",
-  "version": "1.0.34",
+  "version": "1.0.35",
   "private": true,
   "packageManager": "pnpm@9.8.0",
   "author": "laihaojie <https://github.com/laihaojie>",
@@ -16,7 +16,8 @@
   "scripts": {
     "build:tsup": "esno scripts/tsup.ts",
     "build": "cross-env NODE_OPTIONS=\"--max-old-space-size=6144\" rollup -c && pnpm run update",
-    "release": "esno scripts/release.ts",
+    "release:old": "esno scripts/release.ts",
+    "release": "git add . && npx bumpp patch -y --commit --push --all --tag",
     "publish:ci": "esno scripts/publish.ts",
     "update": "esno scripts/update.ts",
     "lint": "eslint .",
