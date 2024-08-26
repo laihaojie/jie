@@ -39,7 +39,7 @@ for (const { name, mjs, cjs, dts, tsx, external, copy } of packages) {
     output,
     plugins: [
       ...tsx ? [vueJsx()] : [],
-      esbuild(),
+      esbuild() as any,
       Copy({
         verbose: true,
         targets: [
