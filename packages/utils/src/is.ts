@@ -35,6 +35,22 @@ export function isUrl(val: any): boolean {
   }
 }
 
+export function isValidFileName(fileName) {
+  // 定义正则表达式，匹配无效字符
+  // eslint-disable-next-line no-control-regex, regexp/no-useless-flag
+  const invalidChars = /[<>:"/\\|?*\x00-\x1F]/g
+  // 检查是否符合命名规范
+  const isValid
+    = typeof fileName === 'string'
+    && fileName.length > 0
+    && fileName.length <= 255
+    && !invalidChars.test(fileName)
+    && !/^\s|\s$/.test(fileName) // 不能以空格开头或结尾
+    && !/^\.+$/.test(fileName) // 不能是仅由句点组成的字符串
+
+  return isValid
+}
+
 export const isEmpty = function (val: any): boolean {
   // null or undefined
   if (val == null)
