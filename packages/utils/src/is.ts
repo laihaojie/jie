@@ -23,6 +23,18 @@ export const isUndefined = (val: any): boolean => val === undefined
 
 export const isDefined = (val: any): boolean => val !== undefined && val !== null
 
+export function isUrl(val: any): boolean {
+  try {
+    // eslint-disable-next-line no-new
+    new URL(val)
+    return true
+  }
+  // eslint-disable-next-line unused-imports/no-unused-vars
+  catch (e) {
+    return false
+  }
+}
+
 export const isEmpty = function (val: any): boolean {
   // null or undefined
   if (val == null)
