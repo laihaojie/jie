@@ -140,7 +140,7 @@ export function objectMerge(target: any, source: any) {
  * @param {boolean} immediate
  * @return {*}
  */
-export function debounce(func: Function, wait: number, immediate: boolean) {
+export function debounce(func: () => Promise<any> | void, wait: number, immediate: boolean) {
   let timeout: any, args: any, context: any, timestamp: any, result: any
 
   const later = function () {
@@ -162,7 +162,7 @@ export function debounce(func: Function, wait: number, immediate: boolean) {
     }
   }
 
-  return function (this: any, ...args: any[]) {
+  return function (this: any, ...args) {
     // eslint-disable-next-line ts/no-this-alias
     context = this
     timestamp = +new Date()
@@ -171,7 +171,7 @@ export function debounce(func: Function, wait: number, immediate: boolean) {
     if (!timeout)
       timeout = setTimeout(later, wait)
     if (callNow) {
-      result = func.apply(context, args as any[])
+      result = func.apply(context, args as any)
       context = args = null as any
     }
 
@@ -232,4 +232,24 @@ export function resolvePath(...paths) {
 
     return `${prev}/${curr}`
   }).replace(/\/$/, '')
+}
+
+export function formatFileSize(fileSize: number) {
+  let fileSizeStr = ''
+  if (fileSize < 1024) {
+    fileSizeStr = `${fileSize}B`
+  }
+  else if (fileSize < 1024 * 1024) {
+    fileSizeStr = `${(fileSize / 1024).toFixed(2)}KB`
+  }
+  else if (fileSize < 1024 * 1024 * 1024) {
+    fileSizeStr = `${(fileSize / 1024 / 1024).toFixed(2)}MB`
+  }
+  else if (fileSize < 1024 * 1024 * 1024 * 1024) {
+    fileSizeStr = `${(fileSize / 1024 / 1024 / 1024).toFixed(2)}GB`
+  }
+  else {
+    fileSizeStr = `${(fileSize / 1024 / 1024 / 1024 / 1024).toFixed(2)}TB`
+  }
+  return fileSizeStr
 }
