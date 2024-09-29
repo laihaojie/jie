@@ -1,3 +1,19 @@
+type WsOptions = {
+  /**
+   * 心跳间隔时间
+   * @default 10000
+  **/
+  timeout?: number
+  /**
+   * 心跳key
+   *  @default 'ping'
+   */
+  pingKey?: string
+  onopen?: (event: Event) => void
+  onerror?: (event: Event) => void
+  onclose?: (event: CloseEvent) => void
+}
+
 export default class Wss {
   websocket: WebSocket | null = null
   // 避免重复连接
@@ -8,14 +24,16 @@ export default class Wss {
   timeoutObj: ReturnType<typeof setTimeout> | null = null
   serverTimeoutObj: ReturnType<typeof setTimeout> | null = null
   callbackStack = {}
-  url
+  url: string
+  pingKey = 'ping'
   onopen
   onerror
   onclose
   isClose = false
 
-  constructor(url) {
+  constructor(url, options: WsOptions ={}) {
     this.url = url
+    Object.assign(this, options)
     this.createWebSocket()
   }
 
@@ -112,7 +130,14 @@ export default class Wss {
   }
 
   // 发送消息
-  send(message) {
+  send({ action, data }) {
+    if (!this.websocket)
+      throw new Error('websocket 未连接')
+    if(!action){
+      throw new Error('action 不能为空')
+    }
+    const message = JSON.stringify({ action, data })
+
     this.websocket!.send(message)
   }
 
@@ -145,7 +170,7 @@ export default class Wss {
     this.timeoutObj = setTimeout(() => {
       // 这里发送一个心跳，后端收到后，返回一个心跳消息，
       // onmessage拿到返回的心跳就说明连接正常
-      this.websocket!.send('ping')
+      this.send({ action: this.pingKey, data: 'ping' })
       // console.log('ping');
       this.serverTimeoutObj = setTimeout(() => { // 如果超过一定时间还没重置，说明后端主动断开了
         // eslint-disable-next-line no-console
