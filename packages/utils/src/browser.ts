@@ -133,7 +133,7 @@ export function getQueryObject(url: string) {
   return obj
 }
 
-export function rafThrottle(fn: Function) {
+export function rafThrottle(fn: (...args) => void) {
   let locked = false
   return function (this: any, ...args: any[]) {
     if (locked)

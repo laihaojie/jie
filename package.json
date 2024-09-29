@@ -29,13 +29,13 @@
     "axios": "^1.7.5"
   },
   "devDependencies": {
-    "@djie/eslint-config": "^2.1.7",
+    "@djie/eslint-config": "^3.0.0",
     "@types/node": "^20.5.8",
     "@vitejs/plugin-vue-jsx": "^4.0.1",
     "consola": "^3.2.3",
     "cross-env": "^7.0.3",
     "esbuild-register": "^3.4.2",
-    "eslint": "^9.9.1",
+    "eslint": "^9.11.1",
     "esno": "^4.7.0",
     "fs-extra": "^11.2.0",
     "husky": "^8.0.3",

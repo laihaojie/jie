@@ -7,7 +7,7 @@ export function localGet(key: string) {
   try {
     return JSON.parse(window.localStorage.getItem(key) as string)
   }
-  catch (error) {
+  catch {
     return window.localStorage.getItem(key)
   }
 }

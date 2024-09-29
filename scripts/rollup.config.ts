@@ -1,9 +1,9 @@
-import Path from 'node:path'
 import type { OutputOptions, RollupOptions } from 'rollup'
-import dts from 'rollup-plugin-dts'
-import esbuild from 'rollup-plugin-esbuild'
+import Path from 'node:path'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import Copy from 'rollup-plugin-copy'
+import dts from 'rollup-plugin-dts'
+import esbuild from 'rollup-plugin-esbuild'
 import { packages } from '../meta/packages'
 
 const configs: RollupOptions[] = []

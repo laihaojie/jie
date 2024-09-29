@@ -1,8 +1,9 @@
-type WsOptions = {
+/* eslint-disable no-console */
+interface WsOptions {
   /**
    * 心跳间隔时间
    * @default 10000
-  **/
+   */
   timeout?: number
   /**
    * 心跳key
@@ -31,7 +32,7 @@ export default class Wss {
   onclose
   isClose = false
 
-  constructor(url, options: WsOptions ={}) {
+  constructor(url, options: WsOptions = {}) {
     this.url = url
     Object.assign(this, options)
     this.createWebSocket()
@@ -49,7 +50,6 @@ export default class Wss {
       this.init()
     }
     catch (e) {
-      // eslint-disable-next-line no-console
       console.log(`catch${e}`)
       this.reconnect()
     }
@@ -58,7 +58,9 @@ export default class Wss {
   init() {
     // 连接成功建立的回调方法
     this.websocket!.onopen = (event) => {
-      this.onopen && this.onopen(event)
+      if (this.onopen) {
+        this.onopen(event)
+      }
       // 心跳检测重置
       this.reset().start()
     }
@@ -76,7 +78,7 @@ export default class Wss {
         else
           this.trigger({ action: 'default', data: result })
       }
-      catch (error) {
+      catch {
         this.trigger({ action: 'default', data: event.data })
       }
       finally {
@@ -86,20 +88,21 @@ export default class Wss {
 
     // 连接发生错误的回调方法
     this.websocket!.onerror = (event) => {
-      // eslint-disable-next-line no-console
       console.log('WebSocket: Error')
-      this.onerror && this.onerror(event)
+      if (this.onerror)
+        this.onerror(event)
       this.reconnect()
     }
 
     // 连接关闭的回调方法
     this.websocket!.onclose = (event) => {
-      // eslint-disable-next-line no-console
       console.log('WebSocket: Closed')
-      this.onclose && this.onclose(event)
+      if (this.onclose)
+        this.onclose(event)
       this.reset() // 心跳检测
       // 判断是否是主动关闭
-      !this.isClose && this.reconnect()
+      if (!this.isClose)
+        this.reconnect()
     }
 
     // 监听窗口关闭事件，当窗口关闭时，主动去关闭websocket连接，防止连接还没断开就关闭窗口，server端会抛异常。
@@ -133,7 +136,7 @@ export default class Wss {
   send({ action, data }) {
     if (!this.websocket)
       throw new Error('websocket 未连接')
-    if(!action){
+    if (!action) {
       throw new Error('action 不能为空')
     }
     const message = JSON.stringify({ action, data })
@@ -149,9 +152,9 @@ export default class Wss {
       return
     this.lockReconnect = true
     this.isClose = false
-    this.tt && clearTimeout(this.tt)
+    if (this.tt)
+      clearTimeout(this.tt)
     this.tt = setTimeout(() => {
-      // eslint-disable-next-line no-console
       console.log('reconnect...')
       this.lockReconnect = false
       this.createWebSocket()
@@ -165,15 +168,16 @@ export default class Wss {
   }
 
   start() {
-    this.timeoutObj && clearTimeout(this.timeoutObj)
-    this.serverTimeoutObj && clearTimeout(this.serverTimeoutObj)
+    if (this.timeoutObj)
+      clearTimeout(this.timeoutObj)
+    if (this.serverTimeoutObj)
+      clearTimeout(this.serverTimeoutObj)
     this.timeoutObj = setTimeout(() => {
       // 这里发送一个心跳，后端收到后，返回一个心跳消息，
       // onmessage拿到返回的心跳就说明连接正常
       this.send({ action: this.pingKey, data: 'ping' })
       // console.log('ping');
       this.serverTimeoutObj = setTimeout(() => { // 如果超过一定时间还没重置，说明后端主动断开了
-        // eslint-disable-next-line no-console
         console.log('Close Server')
         this.websocket!.close() // 如果onclose会执行reconnect，我们执行 websocket.close()就行了.如果直接执行 reconnect 会触发onclose导致重连两次
       }, this.timeout)

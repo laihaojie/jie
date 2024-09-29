@@ -1,5 +1,5 @@
-import { describe, expect, it } from 'vitest'
 import { isEmpty } from '@djie/utils'
+import { describe, expect, it } from 'vitest'
 
 describe('utils', () => {
   it('should be true', () => {

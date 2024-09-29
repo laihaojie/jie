@@ -1,8 +1,8 @@
 import type { Preset } from 'unocss'
-import { commonShortcuts } from '../shortcuts'
-import { commonRules } from '../rules'
-import { commonTransformers } from '../transformers'
 import type { PresetUnitOptions } from './unit'
+import { commonRules } from '../rules'
+import { commonShortcuts } from '../shortcuts'
+import { commonTransformers } from '../transformers'
 import { presetUnit } from './unit'
 
 export interface PresetUniappOptions extends PresetUnitOptions {
