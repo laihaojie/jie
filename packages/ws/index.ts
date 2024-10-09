@@ -10,6 +10,11 @@ interface WsOptions {
    *  @default 'ping'
    */
   pingKey?: string
+  /**
+   * 是否立即链接
+   * @default true
+   */
+  immediate?: boolean
   onopen?: (event: Event) => void
   onerror?: (event: Event) => void
   onclose?: (event: CloseEvent) => void
@@ -31,11 +36,14 @@ export default class Wss {
   onerror
   onclose
   isClose = false
+  // 是否立即链接
+  immediate = true
 
   constructor(url, options: WsOptions = {}) {
     this.url = url
     Object.assign(this, options)
-    this.createWebSocket()
+    if (this.immediate)
+      this.createWebSocket()
   }
 
   /**
@@ -53,6 +61,10 @@ export default class Wss {
       console.log(`catch${e}`)
       this.reconnect()
     }
+  }
+
+  connect() {
+    this.createWebSocket()
   }
 
   init() {
