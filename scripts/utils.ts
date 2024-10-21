@@ -53,6 +53,16 @@ export async function updatePackageJSON() {
       './*': './*',
       ...packageJSON.exports,
     }
+    if (packageJSON.dependencies) {
+      packageJSON.dependencies = Object.fromEntries(Object.entries(packageJSON.dependencies).map(([key, value]) => {
+        if (typeof value === 'string' && value.includes('workspace:')) {
+          return [key, version]
+        }
+        else {
+          return [key, value]
+        }
+      }))
+    }
     delete packageJSON.scripts
     delete packageJSON.devDependencies
 
