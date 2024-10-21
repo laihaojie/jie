@@ -17,7 +17,7 @@ export interface PresetWebOptions extends PresetUnitOptions {
   optionsPresetIcons?: Parameters<typeof presetIcons>[0]
   optionsPresetTypography?: Parameters<typeof presetTypography>[0]
   optionsPresetWebFonts?: Parameters<typeof presetWebFonts>[0]
-  collections?: {
+  presetIconCollections?: {
     [key: string]: {
       dir: string
       replace?: (svg: string) => string
@@ -34,8 +34,8 @@ export function presetWeb(options: PresetWebOptions = {}): Preset {
       presetIcons(objectMerge(options.optionsPresetIcons, {
         scale: 1.2,
         warn: true,
-        collections: options.collections
-          ? Object.fromEntries(Object.entries(options.collections).map(([key, value]) => {
+        collections: options.presetIconCollections
+          ? Object.fromEntries(Object.entries(options.presetIconCollections).map(([key, value]) => {
             return [
               key,
               FileSystemIconLoader(value.dir, value.replace
