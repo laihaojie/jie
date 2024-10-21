@@ -6,7 +6,7 @@ import { version } from '../package.json'
 
 execSync('pnpm run build', { stdio: 'inherit' })
 
-let command = 'pnpm publish --access public --publish-branch main --registry https://registry.npmjs.org'
+let command = 'pnpm publish --access public --no-git-checks --registry https://registry.npmjs.org'
 
 if (version.includes('beta'))
   command += ' --tag beta'
