@@ -1,4 +1,4 @@
-import type { OutputOptions, RollupOptions } from 'rollup'
+import type { InputPluginOption, OutputOptions, RollupOptions } from 'rollup'
 import Path from 'node:path'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import Copy from 'rollup-plugin-copy'
@@ -14,9 +14,9 @@ const dtsPlugin = [
       preserveSymlinks: false,
     },
   }),
-]
+] as InputPluginOption[]
 
-for (const { name, mjs, cjs, dts, tsx, external, copy } of packages) {
+for (const { name, mjs, cjs, dts, tsx, external = [], copy } of packages) {
   const input = `packages/${name}/index.ts`
   const output: OutputOptions[] = []
 
@@ -33,39 +33,41 @@ for (const { name, mjs, cjs, dts, tsx, external, copy } of packages) {
       format: 'cjs',
     })
   }
-
+  const plugins = [
+    esbuild(),
+  ] as InputPluginOption[]
+  if (tsx) {
+    plugins.push(vueJsx() as InputPluginOption)
+  }
+  if (copy) {
+    plugins.push(Copy({
+      verbose: true,
+      targets: [
+        ...copy.map((i) => {
+          const dir = Path.extname(i) === ''
+          if (dir) {
+            return {
+              src: `packages/${name}/${i}`,
+              dest: `packages/${name}/dist/${i.split('/').filter((c) => {
+                return /\w+/.test(c)
+              }).join('/')}`,
+            }
+          }
+          else {
+            return ({
+              src: `packages/${name}/${i}`,
+              dest: `packages/${name}/dist`,
+            })
+          }
+        }),
+      ],
+    }))
+  }
   configs.push({
     input,
     output,
-    plugins: [
-      ...tsx ? [vueJsx()] : [],
-      esbuild() as any,
-      Copy({
-        verbose: true,
-        targets: [
-          ...(copy || []).map((i) => {
-            const dir = Path.extname(i) === ''
-            if (dir) {
-              return {
-                src: `packages/${name}/${i}`,
-                dest: `packages/${name}/dist/${i.split('/').filter((c) => {
-                  return /\w+/.test(c)
-                }).join('/')}`,
-              }
-            }
-            else {
-              return ({
-                src: `packages/${name}/${i}`,
-                dest: `packages/${name}/dist`,
-              })
-            }
-          }),
-        ],
-      }),
-    ],
-    external: [
-      ...(external || []),
-    ],
+    plugins,
+    external,
   })
 
   if (dts !== false) {
@@ -76,9 +78,7 @@ for (const { name, mjs, cjs, dts, tsx, external, copy } of packages) {
         format: 'es',
       },
       plugins: dtsPlugin,
-      external: [
-        ...(external || []),
-      ],
+      external,
     })
   }
 }

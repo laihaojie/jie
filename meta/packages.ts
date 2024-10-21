@@ -13,6 +13,7 @@ export const packages: PackageManifest[] = [
   {
     name: 'utils',
     description: 'The utils of djie',
+    external: ['node:os'],
   },
   {
     name: 'ws',
@@ -22,6 +23,7 @@ export const packages: PackageManifest[] = [
   {
     name: 'jie-ui',
     description: 'The jie-ui of djie',
+    external: ['vue'],
     cjs: false,
     tsx: true,
   },
@@ -32,6 +34,7 @@ export const packages: PackageManifest[] = [
   {
     name: 'unocss',
     description: 'unocss preset',
+    external: ['@djie/utils', 'unocss'],
     copy: ['reset.css', 'reset-full.css', 'css/**/*'],
   },
 ]
