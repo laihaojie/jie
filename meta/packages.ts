@@ -34,7 +34,7 @@ export const packages: PackageManifest[] = [
   {
     name: 'unocss',
     description: 'unocss preset',
-    external: ['@djie/utils', 'unocss'],
+    external: ['@djie/utils', 'unocss', '@iconify/utils'],
     copy: ['reset.css', 'reset-full.css', 'css/**/*'],
   },
 ]

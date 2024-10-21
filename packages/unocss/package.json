@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@djie/utils": "workspace:*",
+    "@iconify/utils": "^2.1.33",
     "@unocss/transformer-directives": "^0.62.3",
     "@unocss/transformer-variant-group": "^0.62.3"
   },
