@@ -36,16 +36,16 @@ export function presetWeb(options: PresetWebOptions = {}): Preset {
         warn: true,
         collections: options.presetIconCollections
           ? Object.fromEntries(Object.entries(options.presetIconCollections).map(([key, value]) => {
-            return [
-              key,
-              FileSystemIconLoader(value.dir, value.replace
-                ? value.replace
-                : (svg) => {
-                    return svg.replace(/(<svg.*?width=)"(.*?)"/, '$1"1em"')
-                      .replace(/(<svg.*?height=)"(.*?)"/, '$1"1em"')
-                  }),
-            ]
-          }))
+              return [
+                key,
+                FileSystemIconLoader(value.dir, value.replace
+                  ? value.replace
+                  : (svg) => {
+                      return svg.replace(/(<svg.*?width=)"(.*?)"/, '$1"1em"')
+                        .replace(/(<svg.*?height=)"(.*?)"/, '$1"1em"')
+                    }),
+              ]
+            }))
           : {},
       })),
       presetTypography(options.optionsPresetTypography),
