@@ -23,41 +23,54 @@ export interface PresetWebOptions extends PresetUnitOptions {
       replace?: (svg: string) => string
     }
   }
+  disablePresetUno?: boolean
+  disablePresetAttributify?: boolean
+  disablePresetIcons?: boolean
+  disablePresetTypography?: boolean
+  disablePresetWebFonts?: boolean
+  disablePresetUnit?: boolean
 }
 
-export function presetWeb(options: PresetWebOptions = {}): Preset {
+export function presetWeb(_options: PresetWebOptions = {}): Preset {
+  const options = objectMerge({
+    disablePresetWebFonts: true,
+    unit: 'px',
+  } as PresetWebOptions, _options) as PresetWebOptions
   return {
     name: '@djie/unocss-preset-web',
-    presets: [
-      presetUno(options.optionsPresetUno),
-      presetAttributify(options.optionsPresetAttributify),
-      presetIcons(objectMerge(options.optionsPresetIcons, {
-        scale: 1.2,
-        warn: true,
-        collections: options.presetIconCollections
-          ? Object.fromEntries(Object.entries(options.presetIconCollections).map(([key, value]) => {
-              return [
-                key,
-                FileSystemIconLoader(value.dir, value.replace
-                  ? value.replace
-                  : (svg) => {
-                      return svg.replace(/(<svg.*?width=)"(.*?)"/, '$1"1em"')
-                        .replace(/(<svg.*?height=)"(.*?)"/, '$1"1em"')
-                    }),
-              ]
-            }))
-          : {},
-      })),
-      presetTypography(options.optionsPresetTypography),
-      presetWebFonts(objectMerge(options.optionsPresetWebFonts, {
-        fonts: {
-          sans: 'DM Sans',
-          serif: 'DM Serif Display',
-          mono: 'DM Mono',
-        },
-      })),
-      ...options.unit ? [presetUnit(options)] : [],
-    ],
+    presets: ([] as Preset[])
+      .concat(!options.disablePresetUno ? presetUno(options.optionsPresetUno) : [])
+      .concat(!options.disablePresetAttributify ? presetAttributify(options.optionsPresetAttributify) : [])
+      .concat(!options.disablePresetIcons
+        ? presetIcons(objectMerge(options.optionsPresetIcons, {
+            scale: 1.2,
+            warn: true,
+            collections: options.presetIconCollections
+              ? Object.fromEntries(Object.entries(options.presetIconCollections).map(([key, value]) => {
+                  return [
+                    key,
+                    FileSystemIconLoader(value.dir, value.replace
+                      ? value.replace
+                      : (svg) => {
+                          return svg.replace(/(<svg.*?width=)"(.*?)"/, '$1"1em"')
+                            .replace(/(<svg.*?height=)"(.*?)"/, '$1"1em"')
+                        }),
+                  ]
+                }))
+              : {},
+          }))
+        : [])
+      .concat(!options.disablePresetTypography ? presetTypography(options.optionsPresetTypography) : [])
+      .concat(!options.disablePresetWebFonts
+        ? presetWebFonts(objectMerge(options.optionsPresetWebFonts, {
+            fonts: {
+              sans: 'DM Sans',
+              serif: 'DM Serif Display',
+              mono: 'DM Mono',
+            },
+          }))
+        : [])
+      .concat(options.unit ? presetUnit(options) : []),
     shortcuts: [
       ...commonShortcuts,
     ],
