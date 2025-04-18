@@ -54,6 +54,12 @@ export default class Wss {
       throw new Error('您的浏览器不支持WebSocket')
 
     try {
+      // 关闭之前的连接
+      if (this.websocket) {
+        this.isClose = true
+        this.websocket.close()
+        this.websocket = null
+      }
       this.websocket = new WebSocket(this.url)
       this.init()
     }
@@ -194,6 +200,38 @@ export default class Wss {
         this.websocket!.close() // 如果onclose会执行reconnect，我们执行 websocket.close()就行了.如果直接执行 reconnect 会触发onclose导致重连两次
       }, this.timeout)
     }, this.timeout)
+  }
+
+  /**
+   * 清除事件监听
+   */
+  off(action, callback) {
+    if (this.callbackStack[action] === undefined)
+      return
+    this.callbackStack[action].delete(callback)
+    if (this.callbackStack[action].size === 0) {
+      delete this.callbackStack[action]
+    }
+  }
+
+  /**
+   * 清除所有事件监听
+   */
+  offAll(action) {
+    if (this.callbackStack[action] === undefined)
+      return
+    this.callbackStack[action].clear()
+    delete this.callbackStack[action]
+  }
+
+  /**
+   * 清除所有事件监听
+   */
+  clearAll() {
+    Object.keys(this.callbackStack).forEach((key) => {
+      this.callbackStack[key].clear()
+      delete this.callbackStack[key]
+    })
   }
 
   /**
