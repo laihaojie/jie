@@ -1,0 +1,16 @@
+{
+  "name": "@djie/openapi-parser",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "scripts": {
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@djie/utils": "workspace:*",
+    "typescript": "^5.2.2",
+    "vitest": "^0.34.3"
+  }
+}

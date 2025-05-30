@@ -1,3 +1,11 @@
 const jie = require('@djie/eslint-config').default
 
-module.exports = jie()
+module.exports = jie(
+  {},
+  {
+    ignores: [
+      '**/dist/**',
+      '**/test/**',
+    ],
+  },
+)

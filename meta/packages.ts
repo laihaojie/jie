@@ -37,4 +37,8 @@ export const packages: PackageManifest[] = [
     external: ['@djie/utils', 'unocss', '@iconify/utils'],
     copy: ['reset.css', 'reset-full.css', 'css/**/*'],
   },
+  {
+    name: 'openapi-parser',
+    description: 'The openapi-parser of djie',
+  },
 ]
