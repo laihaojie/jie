@@ -23,6 +23,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prepare": "husky install",
+    "test:openapi-parser": "pnpm -F @djie/openapi-parser test -- -u",
     "type:check": "tsc --noEmit"
   },
   "dependencies": {

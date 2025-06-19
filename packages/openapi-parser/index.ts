@@ -184,8 +184,8 @@ export function parse(json: any) {
       if (content.parameters) {
         // const contentParameters = content.parameters.filter((item: any) => item.in === 'query')
         const contentParameters = content.parameters
-        const schemaNames = contentParameters.filter((item: any) => item.schema?.$ref).map((item: any) => item.schema.$ref.split('/').pop())
-        const schema = schemaNames.map(name => resultData.json.components.schemas[name])
+        const schemaNames = contentParameters.filter((item: any) => item.schema?.$ref).map((item: any) => ({ name: item.schema.$ref.split('/').pop(), in: item.in }))
+        const schema = schemaNames.map(s => ({ ...resultData.json.components.schemas[s.name], in: s.in })).filter(s => s && s.properties)
         let requestData = []
         requestData = contentParameters.filter(item => item.schema && !item.schema?.$ref).map((item: any) => {
           let type = item.schema.type

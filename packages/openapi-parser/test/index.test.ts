@@ -4,7 +4,7 @@ import { parse } from '../index'
 describe('parse', async () => {
   const json = await fetch('http://lm.ok:889/backend/v3/api-docs').then(res => res.json())
   const { data } = parse(json)
-  it('should be true', async () => {
+  it('判断controller名字有api结尾的情况', async () => {
     expect(data).toMatchSnapshot()
     const categoryApi = data.find(api => api.controller === '/api-base/category-api')
     const category = data.find(api => api.controller === '/api-base/category')
