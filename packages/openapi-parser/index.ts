@@ -11,11 +11,11 @@ export function parse(json: any) {
     return paths.map((url) => {
       const path = resultData.json.paths[url]
       const res = {} as any
-      const content = path.post || path.get
+      const content = path.post || path.get || path.put || path.delete || path.patch || path.head || path.options || path.trace
 
       if (content) {
         res.path = url
-        res.method = path.post ? 'post' : 'get'
+        res.method = Object.keys(path).find(method => ['post', 'get', 'put', 'delete', 'patch', 'head', 'options', 'trace'].includes(method)) || 'get'
         res.summary = content.summary || toCamelCase(url)
         res.tag = content.tags[0]
 
