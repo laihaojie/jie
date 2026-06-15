@@ -109,7 +109,7 @@ export function toggleClass(element: HTMLElement, className: string) {
   else {
     classString
       = classString.substr(0, nameIndex)
-      + classString.substr(nameIndex + className.length)
+        + classString.substr(nameIndex + className.length)
   }
   element.className = classString
 }
@@ -119,7 +119,7 @@ export function toggleClass(element: HTMLElement, className: string) {
  * @returns {object} xxx
  */
 export function getQueryObject(url: string) {
-  url = url == null ? window.location.href : url
+  url = url ?? window.location.href
   const search = url.substring(url.lastIndexOf('?') + 1)
   const obj: any = {}
   const reg = /([^?&=]+)=([^?&=]*)/g

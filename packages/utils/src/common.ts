@@ -145,7 +145,7 @@ export function debounce(func: () => Promise<any> | void, wait: number, immediat
 
   const later = function () {
     // 据上一次触发时间间隔
-    const last = +new Date() - timestamp
+    const last = Date.now() - timestamp
 
     // 上次被包装函数被调用时间间隔 last 小于设定时间间隔 wait
     if (last < wait && last > 0) {
@@ -165,7 +165,7 @@ export function debounce(func: () => Promise<any> | void, wait: number, immediat
   return function (this: any, ...args) {
     // eslint-disable-next-line ts/no-this-alias
     context = this
-    timestamp = +new Date()
+    timestamp = Date.now()
     const callNow = immediate && !timeout
     // 如果延时不存在，重新设定延时
     if (!timeout)
@@ -212,7 +212,7 @@ export function uniqueArr(arr: any) {
  * @returns {string} xxx
  */
 export function createUniqueString() {
-  const timestamp = `${+new Date()}`
+  const timestamp = `${Date.now()}`
   const randomNum = `${(1 + Math.random()) * 65536}`
   return (+(randomNum + timestamp)).toString(32)
 }

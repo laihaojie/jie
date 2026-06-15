@@ -1,3 +1,15 @@
+minimumReleaseAgeExclude:
+  - axios@1.18.0
+  - '@djie/eslint-config@4.0.2'
+nodeLinker: hoisted
+shellEmulator: true
+
+# eslint-disable-next-line pnpm/yaml-enforce-settings
+trustPolicy: false
+
 packages:
   # all packages in subdirs of packages/ and components/
   - 'packages/**'
+
+allowBuilds:
+  esbuild: true

@@ -24,15 +24,7 @@ export const isUndefined = (val: any): boolean => val === undefined
 export const isDefined = (val: any): boolean => val !== undefined && val !== null
 
 export function isUrl(val: any): boolean {
-  try {
-    // eslint-disable-next-line no-new
-    new URL(val)
-    return true
-  }
-  // eslint-disable-next-line unused-imports/no-unused-vars
-  catch (e) {
-    return false
-  }
+  return URL.canParse(val)
 }
 
 export function isValidFileName(fileName) {
@@ -42,16 +34,16 @@ export function isValidFileName(fileName) {
   // 检查是否符合命名规范
   const isValid
     = typeof fileName === 'string'
-    && fileName.length > 0
-    && fileName.length <= 255
-    && !invalidChars.test(fileName)
-    && !/^\s|\s$/.test(fileName) // 不能以空格开头或结尾
-    && !/^\.+$/.test(fileName) // 不能是仅由句点组成的字符串
+      && fileName.length > 0
+      && fileName.length <= 255
+      && !invalidChars.test(fileName)
+      && !/^\s|\s$/.test(fileName) // 不能以空格开头或结尾
+      && !/^\.+$/.test(fileName) // 不能是仅由句点组成的字符串
 
   return isValid
 }
 
-export const isEmpty = function (val: any): boolean {
+export function isEmpty(val: any): boolean {
   // null or undefined
   if (val == null)
     return true

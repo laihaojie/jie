@@ -285,7 +285,7 @@ export function parse(json: any) {
         opList.push(res.bodyParameters)
         res.contentType = 'application/json'
       }
-      if (opList.flat(2).find(i => (i.type === 'file' || i.type === 'file-array'))) {
+      if (opList.flat(2).some(i => (i.type === 'file' || i.type === 'file-array'))) {
         res.contentType = 'multipart/form-data'
       }
     }

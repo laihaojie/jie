@@ -1,4 +1,4 @@
-const jie = require('@djie/eslint-config').default
+const jie = require('@djie/eslint-config')
 
 module.exports = jie(
   {},
